@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <navigation
+        android:id="@+id/sign"
+        app:startDestination="@id/askFragment" >
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.trap.project_music.ui.sign.LoginFragment"
+            android:label="LoginFragment"
+            tools:layout="@layout/login_fragment">
+            <action
+                android:id="@+id/action_loginFragment_to_signUp"
+                app:destination="@id/signup_graph"
+                app:enterAnim="@anim/slide_out_top"
+                app:exitAnim="@anim/slide_in_bottom"
+                app:launchSingleTop="true"
+                app:popEnterAnim="@anim/slide_out_bottom"
+                app:popExitAnim="@anim/slide_in_top" />
+        </fragment>
+        <fragment
+            android:id="@+id/askFragment"
+            android:name="com.trap.project_music.ui.sign.AskFragment"
+            android:label="AskFragment"
+            tools:layout="@layout/ask_fragment">
+            <action
+                android:id="@+id/action_askFragment_to_loginFragment"
+                app:destination="@id/loginFragment"
+                app:enterAnim="@anim/slide_in_top"
+                app:exitAnim="@anim/slide_out_bottom"
+                app:popEnterAnim="@anim/slide_out_top"
+                app:popExitAnim="@anim/slide_in_bottom" />
+            <action
+                android:id="@+id/action_askFragment_to_signUp"
+                app:destination="@id/signup_graph"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right" />
+        </fragment>
+        <action
+            android:id="@+id/action_global_homeFragment2"
+            app:destination="@id/bottomNav"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/graph_navigation"
+            app:popUpToInclusive="true" />
+        <navigation
+            android:id="@+id/signup_graph"
+            app:startDestination="@id/signUp" >
+            <action
+                android:id="@+id/action_signUp_to_loginFragment"
+                app:destination="@id/loginFragment"
+                app:enterAnim="@anim/slide_in_top"
+                app:exitAnim="@anim/slide_out_bottom"
+                app:popEnterAnim="@anim/slide_in_bottom"
+                app:popExitAnim="@anim/slide_out_top" />
+            <fragment
+                android:id="@+id/signUpState2"
+                android:name="com.trap.project_music.ui.sign.signUp.SignUpState2"
+                android:label="fragment_sign_up_state2"
+                tools:layout="@layout/fragment_sign_up_state2">
+                <action
+                    android:id="@+id/action_signUpState2_to_signUpState3"
+                    app:destination="@id/signUpState3"
+                    app:enterAnim="@anim/slide_in_right"
+                    app:exitAnim="@anim/slide_out_left"
+                    app:popEnterAnim="@anim/slide_in_left"
+                    app:popExitAnim="@anim/slide_out_right" />
+            </fragment>
+            <fragment
+                android:id="@+id/signUpState3"
+                android:name="com.trap.project_music.ui.sign.signUp.SignUpState3"
+                android:label="fragment_sign_up_state3"
+                tools:layout="@layout/fragment_sign_up_state3" />
+            <fragment
+                android:id="@+id/signUp"
+                android:name="com.trap.project_music.ui.sign.signUp.SignUpState1"
+                android:label="fragment_sign_up"
+                tools:layout="@layout/fragment_sign_up">
+                <action
+                    android:id="@+id/action_signUp_to_signUpState2"
+                    app:destination="@id/signUpState2"
+                    app:enterAnim="@anim/slide_in_right"
+                    app:exitAnim="@anim/slide_out_left"
+                    app:popEnterAnim="@anim/slide_in_left"
+                    app:popExitAnim="@anim/slide_out_right" />
+            </fragment>
+        </navigation>
+    </navigation>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.trap.project_music.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_sign"
+            app:destination="@id/sign"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_main"
+            app:destination="@id/bottomNav"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/bottomNav"
+        android:name="com.trap.project_music.ui.main.BottomNav"
+        android:label="bottom_nav_fragment" />
+</navigation>
