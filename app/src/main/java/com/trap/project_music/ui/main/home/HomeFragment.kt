@@ -17,7 +17,7 @@ import com.trap.project_music.enums.VoteType
 import com.trap.project_music.factory.HomeViewModelFactory
 import com.trap.project_music.server.RetrofitFactory
 import com.trap.project_music.server.service.APIArtist
-import com.trap.project_music.ui.main.home.adapter.PostAdapter
+import com.trap.project_music.ui.main.home.adapter.ArtistAdapter
 import com.trap.project_music.ui.main.home.listener.OnPostClickListener
 import com.trap.project_music.ui.main.home.listener.OnSnapPositionChangeListener
 import com.trap.project_music.ui.main.home.listener.SnapOnScrollListener
@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.home_fragment.*
 
 class HomeFragment : Fragment() {
     private var listPost = mutableListOf<ArtistJSON>()
-    private lateinit var adapter: PostAdapter
+    private lateinit var adapter: ArtistAdapter
     private lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(
@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
 
         }
 
-        adapter = PostAdapter(listPost,onPostClickListener)
+        adapter = ArtistAdapter(listPost,onPostClickListener)
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(context)
 

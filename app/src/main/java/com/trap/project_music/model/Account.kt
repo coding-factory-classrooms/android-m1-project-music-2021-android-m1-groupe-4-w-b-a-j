@@ -1,7 +1,7 @@
 package com.trap.project_music.model
 
 import com.squareup.moshi.JsonClass
-import com.trap.project_music.vo.ImageJSON
+import com.trap.project_music.vo.SongJSON
 
 enum class GenderType{
     MALE,
@@ -15,5 +15,5 @@ data class Account(
     var email: String,
     var gender: GenderType,
     var birthdate : String,
-    var profilePictureData : ImageJSON
+    var profilePictureData : SongJSON
 )

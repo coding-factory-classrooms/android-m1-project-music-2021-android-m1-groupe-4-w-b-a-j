@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 
 import com.trap.project_music.R
+import kotlinx.android.synthetic.main.main_bottom_nav.*
 
 class BottomNav : Fragment() {
 
@@ -27,7 +28,7 @@ class BottomNav : Fragment() {
 
         val navHostFragment = childFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
-        //nav_view.setupWithNavController(navHostFragment.findNavController())
+        nav_view.setupWithNavController(navHostFragment.findNavController())
 
     }
 

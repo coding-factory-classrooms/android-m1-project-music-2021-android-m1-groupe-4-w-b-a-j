@@ -53,7 +53,6 @@
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@+id/emailParent"
             app:layout_constraintTop_toTopOf="parent"
-            app:prefixText="\@"
             tools:layout_editor_absoluteX="0dp">
 
             <com.google.android.material.textfield.TextInputEditText

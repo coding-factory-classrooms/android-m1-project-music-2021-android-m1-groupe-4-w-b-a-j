@@ -3,13 +3,13 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/_667_photo_min"
+        android:icon="@drawable/button_rounded"
         android:title="Home" />
 
     <item
-        android:id="@+id/navigation_search"
-        android:icon="@drawable/_667_photo_min"
-        android:title="Search" />
+        android:id="@+id/navigation_player"
+        android:icon="@drawable/button_rounded"
+        android:title="Player" />
 
     <item
         android:id="@+id/navigation_profile"
