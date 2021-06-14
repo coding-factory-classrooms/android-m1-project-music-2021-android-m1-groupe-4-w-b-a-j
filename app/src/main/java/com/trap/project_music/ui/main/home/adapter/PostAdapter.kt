@@ -3,7 +3,6 @@ package com.trap.project_music.ui.main.home.adapter
 
 import android.annotation.SuppressLint
 import android.view.*
-import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.trap.project_music.R
@@ -28,15 +27,15 @@ class PostAdapter (private val artists: List<ArtistJSON>, private val onPostClic
         val actualArtist : ArtistJSON = artists[position]
         holder.binding.post = actualArtist
 
-        Glide.with(holder.itemView)
-            .load(actualArtist.profilePicture)
-            .into(holder.binding.profilePicture)
+            Glide.with(holder.itemView)
+                .load(actualArtist.profilePicture)
+                .into(holder.binding.profilePicture)
 
         holder.binding.artistName.text = actualArtist.name
 
 
-        holder.binding.genre.text = "Genre: ${actualArtist.genre}"
-        holder.binding.songNumber.text = "Nombre de chanson(s) : ${actualArtist.songs.size}"
+        holder.binding.genre.text = "Genre: ${actualArtist.genre_name}"
+
 
     }
 

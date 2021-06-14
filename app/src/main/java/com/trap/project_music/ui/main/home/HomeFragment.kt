@@ -1,6 +1,7 @@
 package com.trap.project_music.ui.main.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,7 +58,7 @@ class HomeFragment : Fragment() {
 
         recycler.attachSnapHelperWithListener(snapHelper,SnapOnScrollListener.Behavior.NOTIFY_ON_SCROLL_STATE_IDLE,object : OnSnapPositionChangeListener{
             override fun onSnapPositionChange(position: Int) {
-                viewModel.changeActualPost(position)
+               Log.d("test", "End of recyclerView")
             }
 
         })

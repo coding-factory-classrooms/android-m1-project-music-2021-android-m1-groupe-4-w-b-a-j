@@ -38,7 +38,7 @@ class LoginViewModel(private val apiAccount: APIAccount, application: Applicatio
 
     override fun connection(userName : String, password: String){
         state.postValue(LoginFragmentState.Loading(""))
-        apiAccount.getToken(Auth.Request(userName,password)).enqueue(object : Callback<Auth.Response>{
+        apiAccount.getToken(Auth.Request()).enqueue(object : Callback<Auth.Response>{
             override fun onFailure(call: Call<Auth.Response>, t: Throwable) {
                 state.postValue(LoginFragmentState.Failure("${t.message}"))
                 Log.v("test","error : ${t.message}")
@@ -46,11 +46,13 @@ class LoginViewModel(private val apiAccount: APIAccount, application: Applicatio
 
             @SuppressLint("CommitPrefEdits")
             override fun onResponse(call: Call<Auth.Response>, response: Response<Auth.Response>) {
+                Log.d("test", "token LOGIN_VIEW_MODEL  response.body() : ${response.body()} / RESPONSE.CODE : ${response.code()}}");
+
                 if(response.code() == 401){
                     state.postValue(LoginFragmentState.Failure("401"))
                 }else{
                     getApplication<Application>().getSharedPreferences("ACCOUNT",Context.MODE_PRIVATE).edit().putString("authToken",response.body()?.token).apply()
-                    Log.d("test", "token ${response.body()?.token}");
+                    Log.d("test", "token LOGIN_VIEW_MODEL ${response.body()?.token}");
                     state.postValue(LoginFragmentState.Success(response.body()?.token.toString()))
                 }
             }

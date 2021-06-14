@@ -8,7 +8,7 @@ import com.trap.project_music.model.Category
 data class ArtistJSON(
     val id: Long,
     val name: String,
-    val genre: String,
-    val songs: List<String>,
-    val profilePicture: String
+    val genre_name: String,
+    val songs: List<String>?,
+    val profilePicture: String?
 )

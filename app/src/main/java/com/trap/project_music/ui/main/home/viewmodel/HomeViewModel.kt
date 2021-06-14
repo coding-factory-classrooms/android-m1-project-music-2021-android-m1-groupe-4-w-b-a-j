@@ -69,13 +69,6 @@ class HomeViewModel(private val apiArtist: APIArtist) : ViewModel() {
         })
 
     }
-
-
-    fun changeActualPost(position: Int) {
-        actualPost.postValue(listArtistJSON[position])
-        if (position > (listArtistJSON.size - 5)) getArtists()
-    }
-
 }
 
 
