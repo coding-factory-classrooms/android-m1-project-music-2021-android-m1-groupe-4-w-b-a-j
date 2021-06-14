@@ -11,10 +11,6 @@ import retrofit2.Response
 
 class PostViewModel(private val apiArtist: APIArtist) : ViewModel() {
 
-
-
-
-
     fun getArtists(){
         val serviceRequest = apiArtist.getArtists()
         serviceRequest.enqueue(object : Callback<List<ArtistJSON>> {

@@ -18,7 +18,6 @@ class AskFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        btn_signup.setOnClickListener { findNavController().navigate(R.id.action_askFragment_to_signUp) }
         btn_login.setOnClickListener { findNavController().navigate(R.id.action_askFragment_to_loginFragment) }
     }
 

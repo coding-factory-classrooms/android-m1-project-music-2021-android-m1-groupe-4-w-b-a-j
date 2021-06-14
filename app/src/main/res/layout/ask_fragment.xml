@@ -29,21 +29,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/btn_signup"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/blackindark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:background="@drawable/button_rounded"
-            android:fontFamily="@font/circularbook"
-            android:text="@string/inscription"
-            android:textAllCaps="false"
-            android:textSize="18sp" />
-
         <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
