@@ -6,7 +6,7 @@ import android.view.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.trap.project_music.R
-import com.trap.project_music.databinding.PostBinding
+import com.trap.project_music.databinding.ArtistBinding
 import com.trap.project_music.ui.main.home.listener.OnPostClickListener
 import com.trap.project_music.vo.ArtistJSON
 
@@ -14,21 +14,21 @@ import com.trap.project_music.vo.ArtistJSON
 class PostAdapter (private val artists: List<ArtistJSON>, private val onPostClickListener: OnPostClickListener) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var binding : PostBinding = PostBinding.bind(itemView)
+        var binding : ArtistBinding = ArtistBinding.bind(itemView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context).inflate(R.layout.post, parent , false)
+        val layoutInflater = LayoutInflater.from(parent.context).inflate(R.layout.artist, parent , false)
         return ViewHolder(layoutInflater)
     }
 
     @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val actualArtist : ArtistJSON = artists[position]
-        holder.binding.post = actualArtist
+        holder.binding.artist = actualArtist
 
             Glide.with(holder.itemView)
-                .load(actualArtist.profilePicture)
+                .load(actualArtist.album_cover_url)
                 .into(holder.binding.profilePicture)
 
         holder.binding.artistName.text = actualArtist.name

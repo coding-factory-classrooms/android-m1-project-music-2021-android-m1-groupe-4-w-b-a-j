@@ -8,14 +8,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/trap_nation_min" />
+        app:srcCompat="@drawable/_667_photo_min" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

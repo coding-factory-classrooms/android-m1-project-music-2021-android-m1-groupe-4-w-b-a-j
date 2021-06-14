@@ -10,7 +10,12 @@
         android:label="home_fragment"
         tools:layout="@layout/home_fragment" />
     <fragment
-        android:id="@+id/navigation_profile"
+        android:id="@+id/navigation_playlist"
         android:name="com.trap.project_music.ui.main.ProfileFragment"
         android:label="navigation_profile" />
+    <fragment
+        android:id="@+id/playlistFragment"
+        android:name="com.trap.project_music.PlaylistFragment"
+        android:label="playlist_fragment"
+        tools:layout="@layout/playlist_fragment" />
 </navigation>
