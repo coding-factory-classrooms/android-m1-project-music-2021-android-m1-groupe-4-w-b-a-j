@@ -2,21 +2,17 @@ package com.trap.project_music.ui.main.home.adapter
 
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.util.DisplayMetrics
 import android.view.*
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.trap.project_music.R
 import com.trap.project_music.databinding.PostBinding
-import com.trap.project_music.enums.VoteType
-import com.trap.project_music.ui.main.home.listener.OnDoubleClickListener
 import com.trap.project_music.ui.main.home.listener.OnPostClickListener
-import com.trap.project_music.vo.PostJSON
+import com.trap.project_music.vo.ArtistJSON
 
 
-class PostAdapter (private val posts: List<PostJSON>, private val onPostClickListener: OnPostClickListener) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+class PostAdapter (private val artists: List<ArtistJSON>, private val onPostClickListener: OnPostClickListener) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var binding : PostBinding = PostBinding.bind(itemView)
@@ -29,21 +25,21 @@ class PostAdapter (private val posts: List<PostJSON>, private val onPostClickLis
 
     @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val actualPost : PostJSON = posts[position]
-        holder.binding.post = actualPost
+        val actualArtist : ArtistJSON = artists[position]
+        holder.binding.post = actualArtist
 
         Glide.with(holder.itemView)
-            .load(actualPost.profilePicture)
+            .load(actualArtist.profilePicture)
             .into(holder.binding.profilePicture)
 
-        holder.binding.artistName.text = actualPost.name
+        holder.binding.artistName.text = actualArtist.name
 
 
-        holder.binding.genre.text = "Genre: ${actualPost.genre}"
-        holder.binding.songNumber.text = "Nombre de chanson(s) : ${actualPost.songs.size}"
+        holder.binding.genre.text = "Genre: ${actualArtist.genre}"
+        holder.binding.songNumber.text = "Nombre de chanson(s) : ${actualArtist.songs.size}"
 
     }
 
 
-    override fun getItemCount(): Int { return posts.size }
+    override fun getItemCount(): Int { return artists.size }
 }

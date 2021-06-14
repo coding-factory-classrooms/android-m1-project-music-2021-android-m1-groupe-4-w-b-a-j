@@ -14,15 +14,15 @@ import com.trap.project_music.enums.VoteType
 import com.trap.project_music.factory.ProfileViewModelFactory
 import com.trap.project_music.model.Account
 import com.trap.project_music.server.RetrofitFactory
-import com.trap.project_music.server.service.APIPost
+import com.trap.project_music.server.service.APIArtist
 import com.trap.project_music.ui.main.home.adapter.PostProfileAdapter
 import com.trap.project_music.ui.main.home.listener.OnPostClickListener
-import com.trap.project_music.vo.PostJSON
+import com.trap.project_music.vo.ArtistJSON
 import kotlinx.android.synthetic.main.profile_fragment.*
 
 
 class ProfileFragment: Fragment() {
-    private var listPost = mutableListOf<PostJSON>()
+    private var listPost = mutableListOf<ArtistJSON>()
     private lateinit var viewModel: ProfileViewModel
 
     private lateinit var adapter: PostProfileAdapter
@@ -51,11 +51,11 @@ class ProfileFragment: Fragment() {
 
         viewModel = ViewModelProvider(this, ProfileViewModelFactory(
             RetrofitFactory(requireContext()).createService(
-            APIPost::class.java))
+            APIArtist::class.java))
         ).get(ProfileViewModel::class.java)
 
-        viewModel.getStateListPost().observe(viewLifecycleOwner, Observer { updateUI(it) })
-        viewModel.getPosts(3)
+        viewModel.getStateListArtists().observe(viewLifecycleOwner, Observer { updateUI(it) })
+
 
         viewModel.account().observe(viewLifecycleOwner, Observer { updatePostInfo(it) })
     }
@@ -72,7 +72,7 @@ class ProfileFragment: Fragment() {
     private fun updateUI(state: ProfileViewModelState) {
         when (state) {
             is ProfileViewModelState.Succes -> {
-                this.listPost.addAll(state.listPostJSON)
+                this.listPost.addAll(state.listArtistJSON)
                 adapter.notifyDataSetChanged()
             }
             is ProfileViewModelState.Failure -> {

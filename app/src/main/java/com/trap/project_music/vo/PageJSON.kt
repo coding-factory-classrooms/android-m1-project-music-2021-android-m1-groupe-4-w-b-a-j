@@ -5,7 +5,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class PageJSON(
-    val content: List<PostJSON>,
+    val content: List<ArtistJSON>,
     val pageable: Pageable,
     val totalElements: Int,
     val totalPages: Int,

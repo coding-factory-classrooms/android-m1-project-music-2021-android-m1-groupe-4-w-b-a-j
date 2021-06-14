@@ -2,27 +2,27 @@ package com.trap.project_music.ui.sign.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.trap.project_music.server.service.APIPost
-import com.trap.project_music.vo.PostJSON
+import com.trap.project_music.server.service.APIArtist
+import com.trap.project_music.vo.ArtistJSON
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-class PostViewModel(private val apiPost: APIPost) : ViewModel() {
+class PostViewModel(private val apiArtist: APIArtist) : ViewModel() {
 
 
 
 
 
-    fun getPosts(){
-        val serviceRequest = apiPost.posts()
-        serviceRequest.enqueue(object : Callback<List<PostJSON>> {
-            override fun onFailure(call: Call<List<PostJSON>>, t: Throwable) {
+    fun getArtists(){
+        val serviceRequest = apiArtist.getArtists()
+        serviceRequest.enqueue(object : Callback<List<ArtistJSON>> {
+            override fun onFailure(call: Call<List<ArtistJSON>>, t: Throwable) {
                 Log.v("TEST","FAILURE $t")
                 //stateListPost.value = HomeViewModelState.Failure("Error")
             }
-            override fun onResponse(call: Call<List<PostJSON>>, response: Response<List<PostJSON>>) {
+            override fun onResponse(call: Call<List<ArtistJSON>>, response: Response<List<ArtistJSON>>) {
                 Log.v("TEST","SUCCES $response")
                 if(response.body() != null){
                     //stateListPost.value = HomeViewModelState.Succes(response.body()!!)

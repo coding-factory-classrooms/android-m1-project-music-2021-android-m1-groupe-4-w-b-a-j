@@ -4,82 +4,49 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.trap.project_music.enums.VoteType
-import com.trap.project_music.model.Vote
-import com.trap.project_music.server.service.APIPost
-import com.trap.project_music.vo.PageJSON
-import com.trap.project_music.vo.PostJSON
+import com.trap.project_music.server.service.APIArtist
+import com.trap.project_music.vo.ArtistJSON
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 sealed class HomeViewModelState() {
 
-    data class Succes(val listPostJSON: List<PostJSON>) : HomeViewModelState()
+    data class Succes(val listArtistJSON: List<ArtistJSON>) : HomeViewModelState()
     data class Loading(val message: String) : HomeViewModelState()
     data class Failure(val errorMessage: String) : HomeViewModelState()
 
 }
 
-class HomeViewModel(private val apiPost: APIPost) : ViewModel() {
+class HomeViewModel(private val apiArtist: APIArtist) : ViewModel() {
 
     private val state = MutableLiveData<HomeViewModelState>()
 
     private var actualPage = 0;
 
-    private val actualPost = MutableLiveData<PostJSON>()
-    fun actualPost(): LiveData<PostJSON> = actualPost
-    private var listPostJSON: ArrayList<PostJSON> = ArrayList()
+    private val actualPost = MutableLiveData<ArtistJSON>()
+    fun actualPost(): LiveData<ArtistJSON> = actualPost
+    private var listArtistJSON: ArrayList<ArtistJSON> = ArrayList()
 
     private val stateListPost = MutableLiveData<HomeViewModelState>()
     fun getState(): LiveData<HomeViewModelState> = state
     fun getStateListPost(): LiveData<HomeViewModelState> = stateListPost
 
-    fun getPosts2() {
+
+
+
+    fun getArtists() {
         stateListPost.value = HomeViewModelState.Loading("Chargement : ")
-        val serviceRequest = apiPost.postsPage(actualPage)
-        serviceRequest.enqueue(object : Callback<PageJSON> {
-            override fun onFailure(call: Call<PageJSON>, t: Throwable) {
+        val serviceRequest = apiArtist.getArtists()
+        serviceRequest.enqueue(object : Callback<List<ArtistJSON>> {
+            override fun onFailure(call: Call<List<ArtistJSON>>, t: Throwable) {
                 Log.v("TEST", "FAILURE $t")
                 stateListPost.value = HomeViewModelState.Failure("Error")
             }
 
             override fun onResponse(
-                call: Call<PageJSON>,
-                response: Response<PageJSON>
-            ) {
-                response.body()?.also { it ->
-                    stateListPost.value = HomeViewModelState.Succes(it.content)
-
-                    listPostJSON.addAll(it.content)
-
-                    // set actualpost to first post
-
-                    if (listPostJSON.isNotEmpty()) {
-                        actualPost.postValue(listPostJSON[0])
-                    }
-                    actualPage += 1
-                } ?: run {
-                    stateListPost.value = HomeViewModelState.Failure("list null")
-                }
-            }
-        })
-
-    }
-
-
-    fun getPosts() {
-        stateListPost.value = HomeViewModelState.Loading("Chargement : ")
-        val serviceRequest = apiPost.posts()
-        serviceRequest.enqueue(object : Callback<List<PostJSON>> {
-            override fun onFailure(call: Call<List<PostJSON>>, t: Throwable) {
-                Log.v("TEST", "FAILURE $t")
-                stateListPost.value = HomeViewModelState.Failure("Error")
-            }
-
-            override fun onResponse(
-                call: Call<List<PostJSON>>,
-                response: Response<List<PostJSON>>
+                call: Call<List<ArtistJSON>>,
+                response: Response<List<ArtistJSON>>
             ) {
                 response.body()?.also { it ->
 
@@ -87,12 +54,12 @@ class HomeViewModel(private val apiPost: APIPost) : ViewModel() {
 
                     stateListPost.value = HomeViewModelState.Succes(it)
 
-                    listPostJSON.addAll(it)
+                    listArtistJSON.addAll(it)
 
                     // set actualpost to first post
 
-                    if (listPostJSON.isNotEmpty()) {
-                        actualPost.postValue(listPostJSON[0])
+                    if (listArtistJSON.isNotEmpty()) {
+                        actualPost.postValue(listArtistJSON[0])
                     }
                     actualPage += 1
                 } ?: run {
@@ -103,29 +70,10 @@ class HomeViewModel(private val apiPost: APIPost) : ViewModel() {
 
     }
 
-    fun sendVote(voteType: VoteType, idPost: Long) {
-        stateListPost.value = HomeViewModelState.Loading("Chargement : ")
-
-        val serviceRequest = apiPost.vote(voteType, idPost)
-        serviceRequest.enqueue(object : Callback<Vote> {
-            override fun onFailure(call: Call<Vote>, t: Throwable) {
-                stateListPost.value = HomeViewModelState.Failure("Error")
-            }
-
-            override fun onResponse(call: Call<Vote>, response: Response<Vote>) {
-                if (response.code() == 201) {
-                    Log.v("test", "vote : ${response.body()}")
-                } else {
-                    stateListPost.value = HomeViewModelState.Failure("list null")
-                }
-            }
-
-        })
-    }
 
     fun changeActualPost(position: Int) {
-        actualPost.postValue(listPostJSON[position])
-        if (position > (listPostJSON.size - 5)) getPosts()
+        actualPost.postValue(listArtistJSON[position])
+        if (position > (listArtistJSON.size - 5)) getArtists()
     }
 
 }

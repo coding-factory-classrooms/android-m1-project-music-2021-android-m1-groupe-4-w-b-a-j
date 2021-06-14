@@ -5,6 +5,6 @@ import com.trap.project_music.model.Account
 
 data class VoteJSON (
     val idAccount: Account,
-    val idPostJSON: PostJSON,
+    val idArtistJSON: ArtistJSON,
     val choice : VoteType
 )

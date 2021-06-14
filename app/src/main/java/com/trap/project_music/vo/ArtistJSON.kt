@@ -5,7 +5,7 @@ import com.trap.project_music.model.Account
 import com.trap.project_music.model.Category
 
 @JsonClass(generateAdapter = true)
-data class PostJSON(
+data class ArtistJSON(
     val id: Long,
     val name: String,
     val genre: String,

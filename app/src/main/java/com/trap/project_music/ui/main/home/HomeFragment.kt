@@ -1,7 +1,6 @@
 package com.trap.project_music.ui.main.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,18 +15,18 @@ import com.trap.project_music.common.attachSnapHelperWithListener
 import com.trap.project_music.enums.VoteType
 import com.trap.project_music.factory.HomeViewModelFactory
 import com.trap.project_music.server.RetrofitFactory
-import com.trap.project_music.server.service.APIPost
+import com.trap.project_music.server.service.APIArtist
 import com.trap.project_music.ui.main.home.adapter.PostAdapter
 import com.trap.project_music.ui.main.home.listener.OnPostClickListener
 import com.trap.project_music.ui.main.home.listener.OnSnapPositionChangeListener
 import com.trap.project_music.ui.main.home.listener.SnapOnScrollListener
 import com.trap.project_music.ui.main.home.viewmodel.HomeViewModel
 import com.trap.project_music.ui.main.home.viewmodel.HomeViewModelState
-import com.trap.project_music.vo.PostJSON
+import com.trap.project_music.vo.ArtistJSON
 import kotlinx.android.synthetic.main.home_fragment.*
 
 class HomeFragment : Fragment() {
-    private var listPost = mutableListOf<PostJSON>()
+    private var listPost = mutableListOf<ArtistJSON>()
     private lateinit var adapter: PostAdapter
     private lateinit var viewModel: HomeViewModel
 
@@ -45,7 +44,7 @@ class HomeFragment : Fragment() {
 
         val onPostClickListener: OnPostClickListener = object : OnPostClickListener {
             override fun invoke(voteType: VoteType, idPost: Long) {
-                viewModel.sendVote(voteType, idPost)
+                //TODO implements Onclick
             }
 
         }
@@ -63,21 +62,21 @@ class HomeFragment : Fragment() {
 
         })
 
-        viewModel = ViewModelProvider(this, HomeViewModelFactory(RetrofitFactory(requireContext()).createService(APIPost::class.java))).get(HomeViewModel::class.java)
+        viewModel = ViewModelProvider(this, HomeViewModelFactory(RetrofitFactory(requireContext()).createService(APIArtist::class.java))).get(HomeViewModel::class.java)
         viewModel.getStateListPost().observe(viewLifecycleOwner, Observer { updateUI(it) })
 
         viewModel.actualPost().observe(viewLifecycleOwner, Observer { updatePostInfo(it) })
-        viewModel.getPosts()
+        viewModel.getArtists()
     }
 
-    private fun updatePostInfo(post: PostJSON){
+    private fun updatePostInfo(artist: ArtistJSON){
         return
     }
 
     private fun updateUI(state: HomeViewModelState) {
         when (state) {
             is HomeViewModelState.Succes -> {
-                this.listPost.addAll(state.listPostJSON)
+                this.listPost.addAll(state.listArtistJSON)
                 adapter.notifyDataSetChanged()
             }
             is HomeViewModelState.Failure -> {

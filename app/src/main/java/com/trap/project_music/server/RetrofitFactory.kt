@@ -12,7 +12,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 
 class RetrofitFactory(val context: Context) {
-    private val baseUrl = "http://192.168.1.86:3333/"
+    private val baseUrl = "https://music.gryt.tech/"
 
     fun <S> createService(serviceClass: Class<S>): S {
         val headerAuthorizationInterceptor = Interceptor { chain ->

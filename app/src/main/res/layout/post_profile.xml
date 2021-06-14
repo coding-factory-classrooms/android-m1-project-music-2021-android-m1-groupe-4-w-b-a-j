@@ -5,7 +5,7 @@
         <import type="android.widget.ImageView"/>
         <variable
             name="post_profile"
-            type="com.trap.project_music.vo.PostJSON" />
+            type="com.trap.project_music.vo.ArtistJSON" />
     </data>
 
     <LinearLayout

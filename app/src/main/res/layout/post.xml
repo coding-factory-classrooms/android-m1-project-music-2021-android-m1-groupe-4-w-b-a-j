@@ -5,7 +5,7 @@
         <import type="android.widget.ImageView"/>
         <variable
             name="post"
-            type="com.trap.project_music.vo.PostJSON" />
+            type="com.trap.project_music.vo.ArtistJSON" />
     </data>
 
     <LinearLayout
@@ -22,7 +22,7 @@
         <ImageButton
             android:id="@+id/profilePicture"
             android:layout_width="100dp"
-            android:layout_height="100dp"></ImageButton>
+            android:layout_height="100dp" />
 
         <TextView
             android:id="@+id/artist_name"

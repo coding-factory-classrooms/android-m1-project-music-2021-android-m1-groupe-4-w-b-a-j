@@ -4,21 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.trap.project_music.model.Account
-import com.trap.project_music.server.service.APIPost
-import com.trap.project_music.ui.main.home.viewmodel.HomeViewModelState
-import com.trap.project_music.vo.PageJSON
-import com.trap.project_music.vo.PostJSON
+import com.trap.project_music.server.service.APIArtist
+import com.trap.project_music.vo.ArtistJSON
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.math.log
 
 
 sealed class ProfileViewModelState() {
 
-    data class Succes(val listPostJSON: List<PostJSON>) : ProfileViewModelState()
+    data class Succes(val listArtistJSON: List<ArtistJSON>) : ProfileViewModelState()
     data class Loading(val message: String) : ProfileViewModelState()
     data class Failure(val errorMessage: String) : ProfileViewModelState()
 
@@ -26,46 +22,46 @@ sealed class ProfileViewModelState() {
 
 const val TAG = "ProfileViewModel"
 
-class ProfileViewModel(private val apiPost: APIPost) : ViewModel() {
+class ProfileViewModel(private val apiArtist: APIArtist) : ViewModel() {
 
     private val state = MutableLiveData<ProfileViewModelState>()
 
 
     private val account = MutableLiveData<Account>()
     fun account(): LiveData<Account> = account
-    private var listPostJSON: ArrayList<PostJSON> = ArrayList()
+    private var listArtistJSON: ArrayList<ArtistJSON> = ArrayList()
 
-    private val stateListPost = MutableLiveData<ProfileViewModelState>()
+    private val stateListArtists = MutableLiveData<ProfileViewModelState>()
     fun getState(): LiveData<ProfileViewModelState> = state
-    fun getStateListPost(): LiveData<ProfileViewModelState> = stateListPost
+    fun getStateListArtists(): LiveData<ProfileViewModelState> = stateListArtists
 
 
-    fun getPosts(accountId : Long) {
+    fun getArtists() {
         Log.d("test","execution de la requete")
-        val serviceRequest = apiPost.getPostsByAccount(accountId)
-        serviceRequest.enqueue(object : Callback<List<PostJSON>> {
-            override fun onFailure(call: Call<List<PostJSON>>, t: Throwable) {
+        val serviceRequest = apiArtist.getArtists()
+        serviceRequest.enqueue(object : Callback<List<ArtistJSON>> {
+            override fun onFailure(call: Call<List<ArtistJSON>>, t: Throwable) {
                 Log.v("test", "FAILURE $t")
                 Log.d("test","erreur execution de la requete $call")
-                stateListPost.value = ProfileViewModelState.Failure("Error")
+                stateListArtists.value = ProfileViewModelState.Failure("Error")
             }
 
             override fun onResponse(
-                call: Call<List<PostJSON>>,
-                response: Response<List<PostJSON>>
+                call: Call<List<ArtistJSON>>,
+                response: Response<List<ArtistJSON>>
             ) {
                 response.body()?.also { it ->
-                    stateListPost.value = ProfileViewModelState.Succes(it)
+                    stateListArtists.value = ProfileViewModelState.Succes(it)
 
-                    listPostJSON = it as ArrayList<PostJSON>
+                    listArtistJSON = it as ArrayList<ArtistJSON>
 
                     // set actualpost to first post
 
-                    if (listPostJSON.isNotEmpty()) {
-                     Log.d(TAG, "listPostJSON $listPostJSON")
+                    if (listArtistJSON.isNotEmpty()) {
+                     Log.d(TAG, "listPostJSON $listArtistJSON")
                     }
                 } ?: run {
-                    stateListPost.value = ProfileViewModelState.Failure("list null")
+                    stateListArtists.value = ProfileViewModelState.Failure("list null")
                 }
             }
         })
