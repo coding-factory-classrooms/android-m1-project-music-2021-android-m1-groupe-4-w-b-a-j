@@ -21,8 +21,6 @@ import com.trap.project_music.server.service.APIAccount
 import com.trap.project_music.ui.sign.viewmodel.LoginFragmentState
 import com.trap.project_music.ui.sign.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.login_fragment.*
-import kotlinx.android.synthetic.main.login_fragment.btn_gosignup
-import kotlinx.android.synthetic.main.login_fragment.email
 
 
 class LoginFragment : Fragment() {
@@ -39,7 +37,6 @@ class LoginFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        btn_gosignup.setOnClickListener {findNavController().navigate(R.id.action_loginFragment_to_signUp)}
         val accountDAO :AccountDAO = DatabaseFactory.create(requireContext()).accountDAO()
         welcomeback.formatHtml(getString(R.string.welcome_back))
 
