@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 
 import com.trap.project_music.R
-import com.trap.project_music.enums.VoteType
 import com.trap.project_music.factory.ProfileViewModelFactory
 import com.trap.project_music.model.Account
 import com.trap.project_music.server.RetrofitFactory
@@ -47,6 +46,7 @@ class ProfileFragment: Fragment() {
 
         }
         adapter = PostProfileAdapter(listPost,onArtistClickListener)
+
         recyclerProfile.adapter = adapter
         recyclerProfile.layoutManager = GridLayoutManager(context, 2)
 
