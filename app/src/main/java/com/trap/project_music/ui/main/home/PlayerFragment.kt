@@ -1,21 +1,22 @@
 package com.trap.project_music.ui.main.home
 
 import android.media.MediaPlayer
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.trap.project_music.ui.main.home.viewmodel.PlayerViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.trap.project_music.R
 import com.trap.project_music.factory.PlayerViewModelFactory
 import com.trap.project_music.server.RetrofitFactory
 import com.trap.project_music.server.service.APISong
+import com.trap.project_music.ui.main.home.viewmodel.PlayerViewModel
 import com.trap.project_music.ui.main.home.viewmodel.PlayerViewModelState
 import com.trap.project_music.vo.SongJSON
 import kotlinx.android.synthetic.main.player_fragment.*
@@ -80,6 +81,22 @@ class PlayerFragment : Fragment() {
             override fun onStopTrackingTouch(p0: SeekBar?) {}
 
         })
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (this::runnable.isInitialized) handler.removeCallbacks(runnable)
+        if (this::mediaPlayer.isInitialized) {
+            try {
+                mediaPlayer.reset()
+                mediaPlayer.prepare()
+                mediaPlayer.stop()
+                mediaPlayer.release()
+
+            } catch (e: Exception) {
+                Log.d("test", "Erreur mediaplayer : $e")
+            }
+        }
     }
 
     private fun updateActualSong(state: PlayerViewModelState?) {
