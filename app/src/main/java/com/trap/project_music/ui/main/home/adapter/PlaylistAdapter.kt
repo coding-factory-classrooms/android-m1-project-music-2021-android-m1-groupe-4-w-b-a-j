@@ -27,7 +27,10 @@ class PlaylistAdapter(private var playlists: List<Playlist>)
 
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+    override fun getItemCount(): Int = playlists.size
+
+    fun updateDataSet(playlists: List<Playlist>) {
+        this.playlists = playlists
+        notifyDataSetChanged()
     }
 }
