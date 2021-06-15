@@ -1,6 +1,7 @@
 package com.trap.project_music.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +17,7 @@ import com.trap.project_music.model.Account
 import com.trap.project_music.server.RetrofitFactory
 import com.trap.project_music.server.service.APIArtist
 import com.trap.project_music.ui.main.home.adapter.PostProfileAdapter
-import com.trap.project_music.ui.main.home.listener.OnPostClickListener
+import com.trap.project_music.ui.main.home.listener.OnArtistClickListener
 import com.trap.project_music.vo.ArtistJSON
 import kotlinx.android.synthetic.main.profile_fragment.*
 
@@ -39,13 +40,13 @@ class ProfileFragment: Fragment() {
         super.onActivityCreated(savedInstanceState)
 
 
-        val onPostClickListener: OnPostClickListener = object : OnPostClickListener {
-            override fun invoke(voteType: VoteType, idPost: Long) {
-
+        val onArtistClickListener: OnArtistClickListener = object : OnArtistClickListener {
+            override fun invoke(artistId: Long) {
+                Log.d("test", "ArtistId : $artistId")
             }
 
         }
-        adapter = PostProfileAdapter(listPost,onPostClickListener)
+        adapter = PostProfileAdapter(listPost,onArtistClickListener)
         recyclerProfile.adapter = adapter
         recyclerProfile.layoutManager = GridLayoutManager(context, 2)
 
