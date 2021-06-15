@@ -26,9 +26,10 @@ class PlayerFragment : Fragment() {
 
     private lateinit var viewModel: PlayerViewModel
 
+    private var artistId: Long = 0
     private var listSong = mutableListOf<SongJSON>()
 
-    private lateinit var actualSong : SongJSON
+    private lateinit var actualSong: SongJSON
 
 
     private lateinit var mediaPlayer: MediaPlayer
@@ -39,6 +40,15 @@ class PlayerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
+        arguments.let {
+            Log.d("test", "onCreateView")
+            it?.getLong("artistId")?.let {
+                artistId = it
+            }
+        }
+
         return inflater.inflate(R.layout.player_fragment, container, false)
     }
 
@@ -47,13 +57,17 @@ class PlayerFragment : Fragment() {
 
         mediaPlayer = MediaPlayer()
 
-        viewModel = ViewModelProvider(this, PlayerViewModelFactory(RetrofitFactory(requireContext()).createService(APISong::class.java))).get(PlayerViewModel::class.java)
+        viewModel = ViewModelProvider(
+            this,
+            PlayerViewModelFactory(RetrofitFactory(requireContext()).createService(APISong::class.java))
+        ).get(PlayerViewModel::class.java)
 
         viewModel.getStateListSong().observe(viewLifecycleOwner, Observer { updateUI(it) })
 
-        viewModel.getStateActualSong().observe(viewLifecycleOwner, Observer { updateActualSong(it) })
+        viewModel.getStateActualSong()
+            .observe(viewLifecycleOwner, Observer { updateActualSong(it) })
 
-        viewModel.getSongs()
+        viewModel.getSongs(artistId)
 
 
 
@@ -73,10 +87,11 @@ class PlayerFragment : Fragment() {
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekbar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if(fromUser){
+                if (fromUser) {
                     mediaPlayer.seekTo(progress)
                 }
             }
+
             override fun onStartTrackingTouch(p0: SeekBar?) {}
             override fun onStopTrackingTouch(p0: SeekBar?) {}
 
@@ -107,10 +122,10 @@ class PlayerFragment : Fragment() {
                 stateMusic()
             }
             is PlayerViewModelState.Failure -> {
-                println("Ca beug PlayerViewModelState updateActualSong")
+                Toast.makeText(this.context, state.errorMessage, Toast.LENGTH_SHORT).show()
             }
             is PlayerViewModelState.Loading -> {
-                println("Loading")
+                Toast.makeText(this.context, state.message, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -122,14 +137,15 @@ class PlayerFragment : Fragment() {
                 this.listSong.addAll(state.listSong)
             }
             is PlayerViewModelState.Failure -> {
-                println("Ca beug PlayerViewModelState")
+                Toast.makeText(this.context, state.errorMessage, Toast.LENGTH_SHORT).show()
             }
             is PlayerViewModelState.Loading -> {
-                println("Loading")
+                Toast.makeText(this.context, state.message, Toast.LENGTH_SHORT).show()
             }
         }
 
     }
+
     private fun changeSong() {
         if (this::runnable.isInitialized) handler.removeCallbacks(runnable)
         songName.text = actualSong.name
@@ -160,7 +176,6 @@ class PlayerFragment : Fragment() {
         }
         Toast.makeText(this.context, text, Toast.LENGTH_SHORT).show()
     }
-
 
 
 }

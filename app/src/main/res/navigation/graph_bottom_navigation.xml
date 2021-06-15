@@ -3,12 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph_bottom_navigation"
-    app:startDestination="@id/navigation_player">
+    app:startDestination="@id/navigation_home">
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.trap.project_music.ui.main.home.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/home_fragment" />
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_player"
+            app:destination="@id/navigation_player" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.trap.project_music.ui.main.ProfileFragment"

@@ -5,9 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
@@ -18,7 +20,7 @@ import com.trap.project_music.factory.HomeViewModelFactory
 import com.trap.project_music.server.RetrofitFactory
 import com.trap.project_music.server.service.APIArtist
 import com.trap.project_music.ui.main.home.adapter.ArtistAdapter
-import com.trap.project_music.ui.main.home.listener.OnPostClickListener
+import com.trap.project_music.ui.main.home.listener.OnArtistClickListener
 import com.trap.project_music.ui.main.home.listener.OnSnapPositionChangeListener
 import com.trap.project_music.ui.main.home.listener.SnapOnScrollListener
 import com.trap.project_music.ui.main.home.viewmodel.HomeViewModel
@@ -43,14 +45,15 @@ class HomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
 
-        val onPostClickListener: OnPostClickListener = object : OnPostClickListener {
-            override fun invoke(voteType: VoteType, idPost: Long) {
-                //TODO implements Onclick
+        val onArtistClickListener: OnArtistClickListener = object : OnArtistClickListener {
+            override fun invoke(artistId: Long) {
+                Log.d("test", "Home artistId : $artistId")
+                findNavController().navigate(R.id.action_navigation_home_to_navigation_player,bundleOf(Pair("artistId", artistId)))
             }
 
         }
 
-        adapter = ArtistAdapter(listPost,onPostClickListener)
+        adapter = ArtistAdapter(listPost,onArtistClickListener)
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(context)
 

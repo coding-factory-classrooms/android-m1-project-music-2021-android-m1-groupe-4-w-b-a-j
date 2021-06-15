@@ -6,13 +6,13 @@ import android.view.*
 import androidx.recyclerview.widget.RecyclerView
 import com.trap.project_music.R
 import com.trap.project_music.databinding.PostProfileBinding
-import com.trap.project_music.ui.main.home.listener.OnPostClickListener
+import com.trap.project_music.ui.main.home.listener.OnArtistClickListener
 import com.trap.project_music.vo.ArtistJSON
 
 
 class PostProfileAdapter(
     private val artists: List<ArtistJSON>,
-    private val onPostClickListener: OnPostClickListener
+    private val onArtistClickListener: OnArtistClickListener
 ) : RecyclerView.Adapter<PostProfileAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

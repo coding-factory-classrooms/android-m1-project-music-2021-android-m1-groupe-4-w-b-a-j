@@ -59,9 +59,9 @@ class PlayerViewModel(private val apiSong: APISong) : ViewModel() {
     }
 
 
-    fun getSongs() {
+    fun getSongs(artistId : Long) {
         stateListSong.value = PlayerViewModelState.Loading("Chargement : ")
-        val serviceRequest = apiSong.getSongsByArtistID(2)
+        val serviceRequest = apiSong.getSongsByArtistID(artistId)
         serviceRequest.enqueue(object : Callback<List<SongJSON>> {
 
             override fun onFailure(call: Call<List<SongJSON>>, t: Throwable) {
@@ -75,10 +75,13 @@ class PlayerViewModel(private val apiSong: APISong) : ViewModel() {
             ) {
                 response.body()?.also { it ->
                     Log.d("RESPONSE", "SONG list $it")
-
                     listSong.addAll(it)
-                    changeActualSong(actualSongIndex)
-                    stateListSong.value = PlayerViewModelState.Success(listSong)
+                    if (listSong.size > 0) {
+                        changeActualSong(actualSongIndex)
+                        stateListSong.value = PlayerViewModelState.Success(listSong)
+                    } else {
+                        stateListSong.value = PlayerViewModelState.Failure("Empty list")
+                    }
                 } ?: run {
                     stateListSong.value = PlayerViewModelState.Failure("list null")
                 }
