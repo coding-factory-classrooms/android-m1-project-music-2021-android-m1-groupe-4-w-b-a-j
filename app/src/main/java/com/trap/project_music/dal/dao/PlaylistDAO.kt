@@ -8,13 +8,13 @@ import kotlinx.coroutines.flow.Flow
 interface PlaylistDAO {
 
     @Query("SELECT * FROM playlist_table ORDER BY playListName ASC")
-    fun getPlaylists(): Flow<List<Playlist>>
+    fun getPlaylists(): List<Playlist>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(playlist: Playlist)
+    fun insert(playlist: Playlist)
 
     @Query("DELETE FROM playlist_table")
-    suspend fun deleteAll()
+    fun deleteAll()
 
     @Query("DELETE FROM playlist_table WHERE id = :id")
     fun delete(id: Int)

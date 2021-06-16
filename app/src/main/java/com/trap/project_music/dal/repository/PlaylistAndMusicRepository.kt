@@ -3,6 +3,7 @@ package com.trap.project_music.dal.repository
 import androidx.annotation.WorkerThread
 import com.trap.project_music.dal.dao.MusicInPlaylistDAO
 import com.trap.project_music.dal.dao.PlaylistDAO
+import com.trap.project_music.dal.entity.MusicInPlaylist
 import com.trap.project_music.dal.entity.Playlist
 import kotlinx.coroutines.flow.Flow
 
@@ -24,11 +25,9 @@ class PlaylistAndMusicRepository(private val playlistDao: PlaylistDAO, private v
         playlistDao.insert(playlist)
     }
 
-    /*
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(musicInPlaylist: MusicInPlaylist) {
         musicInPlaylistDao.insert(musicInPlaylist)
     }
-    */
 }

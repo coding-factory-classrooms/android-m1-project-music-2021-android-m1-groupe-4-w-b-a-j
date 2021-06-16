@@ -5,10 +5,9 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.ForeignKey.CASCADE
 import androidx.room.PrimaryKey
-/*
-@Entity(tableName = "musicInPlaylist_table",primaryKeys = ["playlistId","musicId"])
-class MusicInPlaylist (
+
+@Entity(tableName = "musicInPlaylist_table")
+data class MusicInPlaylist (
     @ColumnInfo(name = "musicId") val musicId: Int,
     @ColumnInfo(name = "playlistId") val playlistId: Int
 )
-*/
