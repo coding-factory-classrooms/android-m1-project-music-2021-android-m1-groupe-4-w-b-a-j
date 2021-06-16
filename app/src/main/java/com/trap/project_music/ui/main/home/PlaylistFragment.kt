@@ -32,7 +32,7 @@ class PlaylistFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        model.getPlaylistsLiveData().observe(this, { playlists -> updatePlaylists(playlists!!)})
+        model.getPlaylistsLiveData().observe(viewLifecycleOwner, { playlists -> updatePlaylists(playlists!!)})
 
         adapter = PlaylistAdapter(listOf())
 
