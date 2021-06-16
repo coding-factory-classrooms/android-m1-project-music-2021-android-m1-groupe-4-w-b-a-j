@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/button_rounded"
-        android:title="Home" />
+        android:id="@+id/bibliotheque"
+        android:actionLayout="@layout/bibliotheque_fragment"
+        android:icon="@drawable/library"
+        android:title="Library" />
 
     <item
-        android:id="@+id/navigation_player"
-        android:icon="@drawable/button_rounded"
+        android:id="@+id/playlist"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="Playlists" />
+
+    <item
+        android:id="@+id/player"
+        android:icon="@drawable/ic_launcher_background"
         android:title="Player" />
 
     <item
-        android:id="@+id/navigation_profile"
-        android:icon="@drawable/_667_photo_min"
+        android:id="@+id/userProfile"
+        android:icon="@drawable/ic_launcher_background"
         android:title="Profile" />
-
-    <item
-        android:id="@+id/navigation_playlist"
-        android:icon="@drawable/_667_photo_min"
-        android:title="Playlist" />
 
 </menu>

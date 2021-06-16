@@ -1,116 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.ProfileFragment">
-
+    android:scrollbars="none"
+    tools:context=".ui.main.profile.Profile">
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="0dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:orientation="horizontal"
-        android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/profile_picture"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:scaleType="fitCenter"
-            tools:srcCompat="@tools:sample/avatars" />
+        <Button
+            android:id="@+id/btnReturn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/chevron_left"
+            app:backgroundTint="@color/Aubergine" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="350dp"
+        android:layout_height="678dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/display_name"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="mathis_timo"
-                android:textColor="#FFFFFF"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="16dp">
 
-            <TextView
-                android:id="@+id/name"
+                <ImageView
+                    android:id="@+id/albumCover"
+                    android:layout_width="315dp"
+                    android:layout_height="463dp"
+                    android:scaleType="centerCrop"
+                    android:scrollbars="none"
+                    tools:src="@tools:sample/avatars" />
+            </androidx.cardview.widget.CardView>
+
+
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:text="\@mathis_timo"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" />
+                android:layout_height="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:paddingBottom="70dp">
 
                 <TextView
-                    android:id="@+id/nb_follower"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/titleSongs"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="0 abonnés"
-                    android:textColor="#FFFFFF"
+                    android:text="Songs"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/nb_follow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="0 abonnement"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerSongs"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/song" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/btn_follow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="clip_horizontal|center_vertical"
-                android:layout_marginTop="15dp"
-                android:padding="5dp"
-                android:paddingStart="45dp"
-                android:paddingEnd="45dp"
-                android:text="Followed"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:textStyle="bold" />
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
-    <Space
-        android:id="@+id/space"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerProfile"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space" />
 </androidx.constraintlayout.widget.ConstraintLayout>
