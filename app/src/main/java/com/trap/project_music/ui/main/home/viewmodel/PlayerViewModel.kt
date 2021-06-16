@@ -39,7 +39,7 @@ class PlayerViewModel(private val apiSong: APISong) : ViewModel() {
     fun nextSong(){
         if (actualSongIndex < 10){
         actualSongIndex++
-        actualSong 
+        actualSong
         }
     }
     fun prevSong(){
