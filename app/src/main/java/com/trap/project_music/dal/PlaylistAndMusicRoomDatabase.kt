@@ -13,7 +13,7 @@ import com.trap.project_music.dal.entity.Playlist
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Playlist::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Playlist::class, MusicInPlaylist::class), version = 1, exportSchema = false)
 public abstract class PlaylistAndMusicRoomDatabase : RoomDatabase() {
 
     abstract fun playlistDao(): PlaylistDAO

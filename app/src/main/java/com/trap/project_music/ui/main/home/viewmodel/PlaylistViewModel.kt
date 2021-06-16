@@ -1,11 +1,10 @@
 package com.trap.project_music.ui.main.home.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.trap.project_music.R
-import com.trap.project_music.dal.entity.Playlist
-import com.trap.project_music.dal.repository.PlaylistAndMusicRepository
 import com.trap.project_music.model.PlaylistModel
-import kotlinx.coroutines.launch
 
 private val playlists = listOf(
     PlaylistModel(1, R.drawable._667_photo_min, "playlistX"),
@@ -23,7 +22,7 @@ private val playlists = listOf(
     PlaylistModel(12, R.drawable._667_photo_min, "playlistZ"),
 )
 
-class PlaylistViewModel(private val repository: PlaylistAndMusicRepository) : ViewModel() {
+class PlaylistViewModel() : ViewModel() {
     private val playlistsLiveData = MutableLiveData<List<PlaylistModel>>()
     fun getPlaylistsLiveData(): LiveData<List<PlaylistModel>> = playlistsLiveData
 
@@ -34,12 +33,12 @@ class PlaylistViewModel(private val repository: PlaylistAndMusicRepository) : Vi
     // - We can put an observer on the data (instead of polling for changes) and only update the
     //   the UI when the data actually changes.
     // - Repository is completely separated from the UI through the ViewModel.
-    val allPlaylist: LiveData<List<Playlist>> = repository.allPlaylist.asLiveData()
-
-    /**
-     * Launching a new coroutine to insert the data in a non-blocking way
-     */
-    fun insert(playlist: Playlist) = viewModelScope.launch {
-        repository.insert(playlist)
-    }
+//    val allPlaylist: LiveData<List<Playlist>> = repository.allPlaylist.asLiveData()
+//
+//    /**
+//     * Launching a new coroutine to insert the data in a non-blocking way
+//     */
+//    fun insert(playlist: Playlist) = viewModelScope.launch {
+//        repository.insert(playlist)
+//    }
 }
