@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.trap.project_music.databinding.PlaylistItemBinding
-import com.trap.project_music.model.Playlist
+import com.trap.project_music.model.PlaylistModel
 
-class PlaylistAdapter(private var playlists: List<Playlist>)
+class PlaylistAdapter(private var playlistModels: List<PlaylistModel>)
     : RecyclerView.Adapter<PlaylistAdapter.ViewHolder>() {
     class ViewHolder(val binding: PlaylistItemBinding): RecyclerView.ViewHolder(binding.root) {
 
@@ -19,7 +19,7 @@ class PlaylistAdapter(private var playlists: List<Playlist>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val playlist = playlists[position]
+        val playlist = playlistModels[position]
         with (holder.binding) {
             playlistImageView.setImageResource(playlist.imageId)
             playlistNameTextView.text = playlist.name
@@ -27,10 +27,10 @@ class PlaylistAdapter(private var playlists: List<Playlist>)
 
     }
 
-    override fun getItemCount(): Int = playlists.size
+    override fun getItemCount(): Int = playlistModels.size
 
-    fun updateDataSet(playlists: List<Playlist>) {
-        this.playlists = playlists
+    fun updateDataSet(playlistModels: List<PlaylistModel>) {
+        this.playlistModels = playlistModels
         notifyDataSetChanged()
     }
 }
