@@ -2,6 +2,6 @@ package com.trap.project_music.model
 
 data class Playlist(
     val id: Int,
-    val image: String,
+    val imageId: Int,
     val name: String
 )

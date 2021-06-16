@@ -21,7 +21,7 @@ class PlaylistAdapter(private var playlists: List<Playlist>)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val playlist = playlists[position]
         with (holder.binding) {
-            //playlistImageView.setImageResource(playlist.image)
+            playlistImageView.setImageResource(playlist.imageId)
             playlistNameTextView.text = playlist.name
         }
 
