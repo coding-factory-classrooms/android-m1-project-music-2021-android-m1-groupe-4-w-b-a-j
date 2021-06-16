@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 interface PlaylistDAO {
 
     @Query("SELECT * FROM playlist_table ORDER BY playListName ASC")
-    fun getPlaylists(): Flow<List<Playlist>>?
+    fun getPlaylists(): Flow<List<Playlist>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(playlist: Playlist)

@@ -1,10 +1,11 @@
 package com.trap.project_music.ui.main.home.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.trap.project_music.R
+import com.trap.project_music.dal.entity.Playlist
+import com.trap.project_music.dal.repository.PlaylistAndMusicRepository
 import com.trap.project_music.model.PlaylistModel
+import kotlinx.coroutines.launch
 
 private val playlists = listOf(
     PlaylistModel(1, R.drawable._667_photo_min, "playlistX"),
@@ -22,11 +23,23 @@ private val playlists = listOf(
     PlaylistModel(12, R.drawable._667_photo_min, "playlistZ"),
 )
 
-class PlaylistViewModel : ViewModel() {
+class PlaylistViewModel(private val repository: PlaylistAndMusicRepository) : ViewModel() {
     private val playlistsLiveData = MutableLiveData<List<PlaylistModel>>()
     fun getPlaylistsLiveData(): LiveData<List<PlaylistModel>> = playlistsLiveData
 
     fun loadPlaylists() {
         playlistsLiveData.value = playlists
+    }
+    // Using LiveData and caching what allplaylists returns has several benefits:
+    // - We can put an observer on the data (instead of polling for changes) and only update the
+    //   the UI when the data actually changes.
+    // - Repository is completely separated from the UI through the ViewModel.
+    val allPlaylist: LiveData<List<Playlist>> = repository.allPlaylist.asLiveData()
+
+    /**
+     * Launching a new coroutine to insert the data in a non-blocking way
+     */
+    fun insert(playlist: Playlist) = viewModelScope.launch {
+        repository.insert(playlist)
     }
 }
