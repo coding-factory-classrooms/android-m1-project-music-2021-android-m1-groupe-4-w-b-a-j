@@ -3,6 +3,7 @@ package com.trap.project_music.ui.main.home.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.trap.project_music.R
 import com.trap.project_music.databinding.PlaylistItemBinding
 import com.trap.project_music.model.PlaylistModel
 
@@ -21,7 +22,7 @@ class PlaylistAdapter(private var playlistModels: List<PlaylistModel>)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val playlist = playlistModels[position]
         with (holder.binding) {
-            playlistImageView.setImageResource(playlist.imageId)
+            playlistImageView.setImageResource(/*playlist.imageId*/R.drawable._667_photo_min)
             playlistNameTextView.text = playlist.name
         }
 

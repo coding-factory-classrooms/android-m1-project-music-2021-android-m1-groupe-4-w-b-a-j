@@ -30,10 +30,10 @@ class PlaylistViewModel() : ViewModel() {
     fun getPlaylistsLiveData(): LiveData<List<PlaylistModel>> = playlistsLiveData
 
     fun loadPlaylists() {
-        playlistsLiveData.value = convertDataInModel(playlists)
+        playlistsLiveData.value = convertDataToModels(playlists)
     }
 
-    private fun convertDataInModel(playlists: List<Playlist>): List<PlaylistModel> {
+    private fun convertDataToModels(playlists: List<Playlist>): List<PlaylistModel> {
         val list: MutableList<PlaylistModel> = ArrayList()
 
         for (playList in playlists) {
