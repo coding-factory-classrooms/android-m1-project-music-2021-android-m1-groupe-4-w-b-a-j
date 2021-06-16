@@ -25,8 +25,8 @@ class PlaylistFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = PlaylistFragmentBinding.inflate(layoutInflater)
-        return inflater.inflate(R.layout.playlist_fragment, container, false)
+        binding = PlaylistFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
