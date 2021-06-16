@@ -7,18 +7,18 @@ import com.trap.project_music.model.Playlist
 
 private val playlists = listOf(
     Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistX"),
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistX"),
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistX"),
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistX"),
+    Playlist(2, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistX"),
+    Playlist(3, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistX"),
+    Playlist(4, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistX"),
 
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistY"),
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistY"),
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistY"),
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistY"),
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistZ"),
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistZ"),
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistZ"),
-    Playlist(1, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistZ"),
+    Playlist(5, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistY"),
+    Playlist(6, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistY"),
+    Playlist(7, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistY"),
+    Playlist(8, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistY"),
+    Playlist(9, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistZ"),
+    Playlist(10, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistZ"),
+    Playlist(11, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistZ"),
+    Playlist(12, "https://www.lovethispic.com/uploaded_images/thumbs/32559-Beautiful-Ocean.jpg", "playlistZ"),
 )
 
 class PlaylistViewModel : ViewModel() {
