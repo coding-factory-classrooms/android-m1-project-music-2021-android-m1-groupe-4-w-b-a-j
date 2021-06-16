@@ -40,22 +40,22 @@ class PlayerViewModel(private val apiSong: APISong) : ViewModel() {
 
 
     fun nextSong() {
-        if (actualSongIndex < listSong.size) {
-            actualSongIndex += 1
-            changeActualSong(actualSongIndex)
-        }
+        actualSongIndex = (actualSongIndex + 1) % listSong.size
+        changeActualSong(actualSongIndex)
     }
 
     fun prevSong() {
         if (actualSongIndex > 0) {
             actualSongIndex -= 1
             changeActualSong(actualSongIndex)
-        }
+        } else (
+            changeActualSong(listSong.size - 1)
+        )
     }
 
 
     fun changeActualSong(index: Int) {
-        actualSong.value = PlayerViewModelState.ChangeSong(listSong[index])
+       actualSong.value = PlayerViewModelState.ChangeSong(listSong[index])
     }
 
 
