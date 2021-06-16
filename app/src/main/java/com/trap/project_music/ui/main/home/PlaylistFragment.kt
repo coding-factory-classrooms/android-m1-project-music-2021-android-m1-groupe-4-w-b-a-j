@@ -39,9 +39,6 @@ class PlaylistFragment : Fragment() {
 
         model.loadPlaylists()
 
-        //viewModel = ViewModelProvider(this).get(PlaylistViewModel::class.java)
-        // TODO: Use the ViewModel
-
         Log.d("test", "PLAYLIST FRAGMENT")
     }
 

@@ -14,9 +14,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var playlist = Playlist(0,"ma playlist",1)
+        var playlist = Playlist(0,"ma playlist",R.drawable._667_photo_min)
         val playlistDao = PlaylistAndMusicApplication.database.playlistDao()
-        playlistDao.insert(playlist)
+        for (i in 1..10) {
+            playlistDao.insert(playlist)
+        }
+
         navController = findNavController(R.id.mainActivity)
     }
 }
