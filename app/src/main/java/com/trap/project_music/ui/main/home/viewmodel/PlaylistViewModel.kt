@@ -1,5 +1,6 @@
 package com.trap.project_music.ui.main.home.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,29 +9,24 @@ import com.trap.project_music.R
 import com.trap.project_music.dal.entity.Playlist
 import com.trap.project_music.model.PlaylistModel
 
-private val playlists = PlaylistAndMusicApplication.database.playlistDao().getPlaylists()
-//    listOf(
-//    PlaylistModel(1, R.drawable._667_photo_min, "playlistX"),
-//    PlaylistModel(2, R.drawable._667_photo_min, "playlistX"),
-//    PlaylistModel(3, R.drawable._667_photo_min, "playlistX"),
-//    PlaylistModel(4, R.drawable._667_photo_min, "playlistX"),
-//
-//    PlaylistModel(5, R.drawable._667_photo_min, "playlistY"),
-//    PlaylistModel(6, R.drawable._667_photo_min, "playlistY"),
-//    PlaylistModel(7, R.drawable._667_photo_min, "playlistY"),
-//    PlaylistModel(8, R.drawable._667_photo_min, "playlistY"),
-//    PlaylistModel(9, R.drawable._667_photo_min, "playlistZ"),
-//    PlaylistModel(10, R.drawable._667_photo_min, "playlistZ"),
-//    PlaylistModel(11, R.drawable._667_photo_min, "playlistZ"),
-//    PlaylistModel(12, R.drawable._667_photo_min, "playlistZ"),
-//)
+sealed class PlaylistViewModelState(
+    open val errorMessage: String = "Invalid playlist name"
+) {
+    object Success : PlaylistViewModelState()
+    data class Failure(override val errorMessage: String) :
+        PlaylistViewModelState(errorMessage = errorMessage)
+}
+
+//private val playlists = PlaylistAndMusicApplication.database.playlistDao().getPlaylists()
 
 class PlaylistViewModel() : ViewModel() {
+    private val state = MutableLiveData<PlaylistViewModelState>()
     private val playlistsLiveData = MutableLiveData<List<PlaylistModel>>()
     fun getPlaylistsLiveData(): LiveData<List<PlaylistModel>> = playlistsLiveData
+    fun getState() : LiveData<PlaylistViewModelState> = state
 
     fun loadPlaylists() {
-        playlistsLiveData.value = convertDataToModels(playlists)
+        playlistsLiveData.value = convertDataToModels(PlaylistAndMusicApplication.database.playlistDao().getPlaylists())
     }
 
     private fun convertDataToModels(playlists: List<Playlist>): List<PlaylistModel> {
@@ -41,16 +37,15 @@ class PlaylistViewModel() : ViewModel() {
         }
         return list
     }
-    // Using LiveData and caching what allplaylists returns has several benefits:
-    // - We can put an observer on the data (instead of polling for changes) and only update the
-    //   the UI when the data actually changes.
-    // - Repository is completely separated from the UI through the ViewModel.
-//    val allPlaylist: LiveData<List<Playlist>> = repository.allPlaylist.asLiveData()
-//
-//    /**
-//     * Launching a new coroutine to insert the data in a non-blocking way
-//     */
-//    fun insert(playlist: Playlist) = viewModelScope.launch {
-//        repository.insert(playlist)
-//    }
+
+    public fun createPlaylist(playlistName: String) {
+        if (playlistName != "") {
+            PlaylistAndMusicApplication.database.playlistDao().insert(Playlist(0, playlistName, R.drawable._667_photo_min))
+            loadPlaylists()
+            state.value = PlaylistViewModelState.Success
+            Log.i("playlist","Enrg : "+  PlaylistAndMusicApplication.database.playlistDao().getPlaylists().size)
+        } else {
+            state.value = PlaylistViewModelState.Failure("Invalid name")
+        }
+    }
 }
