@@ -7,8 +7,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SnapHelper
 
 internal fun Fragment.makeToast(value: String) {
     Toast.makeText(activity, value, Toast.LENGTH_SHORT).show()

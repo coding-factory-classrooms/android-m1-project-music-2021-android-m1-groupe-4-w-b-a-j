@@ -7,7 +7,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ldo.project_music.api.service.APIArtist
 import com.ldo.project_music.model.Artist
-import com.ldo.project_music.ui.login.viewmodel.LoginFragmentState
 import com.ldo.project_music.ui.main.bibliotheque.viewmodel.interfaces.IBibliothequeViewModel
 import retrofit2.Call
 import retrofit2.Callback

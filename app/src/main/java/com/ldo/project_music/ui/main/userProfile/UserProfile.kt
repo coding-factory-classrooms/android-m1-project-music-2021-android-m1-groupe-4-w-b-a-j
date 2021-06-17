@@ -21,7 +21,6 @@ import com.ldo.project_music.factory.UserProfileViewModelFactory
 import com.ldo.project_music.model.Artist
 import com.ldo.project_music.model.Song
 import com.ldo.project_music.ui.main.profile.viewmodel.adapter.OnSongClickListener
-import com.ldo.project_music.ui.main.profile.viewmodel.adapter.SongsAdapter
 import com.ldo.project_music.ui.main.userProfile.viewmodel.adapter.SongBoxAdapter
 import kotlinx.android.synthetic.main.user_profile_fragment.*
 

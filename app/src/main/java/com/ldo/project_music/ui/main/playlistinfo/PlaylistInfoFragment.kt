@@ -1,35 +1,28 @@
 package com.ldo.project_music.ui.main.playlistinfo
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ldo.project_music.MusicDownloader
 import com.ldo.project_music.R
 import com.ldo.project_music.SongStorageFactory
-import com.ldo.project_music.SongStorageSystem
 import com.ldo.project_music.api.RetrofitFactory
 import com.ldo.project_music.api.service.APISong
 import com.ldo.project_music.common.makeToast
 import com.ldo.project_music.dal.DatabaseFactory
 import com.ldo.project_music.factory.PlaylistInfoViewModelFactory
-import com.ldo.project_music.factory.PlaylistViewModelFactory
-import com.ldo.project_music.model.Artist
 import com.ldo.project_music.model.Song
-import com.ldo.project_music.ui.main.playlist.viewmodel.PlaylistViewModel
 import com.ldo.project_music.ui.main.playlistinfo.viewmodel.DownloadState
 import com.ldo.project_music.ui.main.playlistinfo.viewmodel.PlaylistInfoViewModel
 import com.ldo.project_music.ui.main.playlistinfo.viewmodel.SongAndDownLoad
 import com.ldo.project_music.ui.main.profile.viewmodel.adapter.OnSongClickListener
 import com.ldo.project_music.ui.main.profile.viewmodel.adapter.SongsAdapter
 import kotlinx.android.synthetic.main.playlist_info_fragment.*
-import kotlinx.android.synthetic.main.profile_fragment.*
 import kotlinx.android.synthetic.main.profile_fragment.btnReturn
 import kotlinx.android.synthetic.main.profile_fragment.recyclerSongs
 

@@ -1,16 +1,14 @@
 package com.ldo.project_music.ui.main.player
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.ldo.project_music.ui.main.player.viewmodel.PlayerViewModel
 import com.ldo.project_music.R
 import com.ldo.project_music.SongStorageFactory
 import com.ldo.project_music.api.RetrofitFactory
@@ -20,6 +18,7 @@ import com.ldo.project_music.common.makeToast
 import com.ldo.project_music.dal.DatabaseFactory
 import com.ldo.project_music.factory.PlayerViewModelFactory
 import com.ldo.project_music.model.Song
+import com.ldo.project_music.ui.main.player.viewmodel.PlayerViewModel
 import com.ldo.project_music.ui.main.player.viewmodel.PlayerViewModelState
 import kotlinx.android.synthetic.main.player_fragment.*
 import java.util.concurrent.TimeUnit

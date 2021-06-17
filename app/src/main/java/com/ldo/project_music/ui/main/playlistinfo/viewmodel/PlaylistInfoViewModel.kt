@@ -5,14 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ldo.project_music.*
+import com.ldo.project_music.Callback
+import com.ldo.project_music.MusicDownloader
+import com.ldo.project_music.SongStorageSystem
 import com.ldo.project_music.dal.dao.PlaylistDAO
 import com.ldo.project_music.dal.dao.SongDAO
-import com.ldo.project_music.model.Artist
 import com.ldo.project_music.model.Song
-import com.ldo.project_music.ui.main.player.viewmodel.PlayerViewModelState
-import kotlinx.coroutines.launch
-import java.io.File
 
 sealed class DownloadState{
     data class Added(val songsAndDownLoad:List<SongAndDownLoad>): DownloadState()
@@ -48,6 +46,7 @@ class PlaylistInfoViewModel(private val playlistDAO: PlaylistDAO, private val so
                     Log.d("test","song downloaded : $song")
                     try{
                         val path:String = songStorageSystem.saveSong(song,byteArray)
+                        Log.d("test","PATH $path")
                     }catch (e:Exception){
                         Log.e("test",e.message.toString())
                         downloadingState.value = DownloadState.Error("Storage full")

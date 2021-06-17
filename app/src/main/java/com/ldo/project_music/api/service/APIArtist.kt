@@ -2,7 +2,8 @@ package com.ldo.project_music.api.service
 
 import com.ldo.project_music.model.Artist
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface APIArtist {
     @GET("api/artists/")

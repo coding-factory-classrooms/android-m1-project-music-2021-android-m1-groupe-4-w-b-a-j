@@ -1,10 +1,9 @@
 package com.ldo.project_music
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-
 
 
 class MainActivity : AppCompatActivity() {

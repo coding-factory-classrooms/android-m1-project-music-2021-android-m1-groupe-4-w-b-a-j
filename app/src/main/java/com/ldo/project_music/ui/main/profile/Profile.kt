@@ -1,18 +1,17 @@
 package com.ldo.project_music.ui.main.profile
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.ldo.project_music.ui.main.profile.viewmodel.ProfileViewModel
 import com.ldo.project_music.R
 import com.ldo.project_music.api.RetrofitFactory
 import com.ldo.project_music.api.service.APIArtist
@@ -24,12 +23,11 @@ import com.ldo.project_music.model.Artist
 import com.ldo.project_music.model.Song
 import com.ldo.project_music.ui.main.profile.viewmodel.ArtistProfileState
 import com.ldo.project_music.ui.main.profile.viewmodel.PlaylistState
+import com.ldo.project_music.ui.main.profile.viewmodel.ProfileViewModel
 import com.ldo.project_music.ui.main.profile.viewmodel.SongsProfileState
 import com.ldo.project_music.ui.main.profile.viewmodel.adapter.OnSongClickListener
 import com.ldo.project_music.ui.main.profile.viewmodel.adapter.SongsAdapter
 import kotlinx.android.synthetic.main.profile_fragment.*
-import kotlinx.android.synthetic.main.song.*
-import java.util.ArrayList
 
 class Profile : Fragment() {
 
