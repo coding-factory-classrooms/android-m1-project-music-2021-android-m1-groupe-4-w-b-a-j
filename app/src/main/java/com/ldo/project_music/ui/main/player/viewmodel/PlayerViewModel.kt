@@ -40,7 +40,7 @@ const val ARTIST_PREF = "artistId"
 const val SONG_PREF = "songId"
 const val PLAYLIST_PREF = "playlistId"
 
-class PlayerViewModel(private val apiArtist: APIArtist, private val apiSong: APISong, val application: Application, private val songDAO: SongDAO, private val playlistDAO: PlaylistDAO, private val songStatDAO: SongStatDAO) : ViewModel() {
+class PlayerViewModel(private val apiArtist: APIArtist, private val apiSong: APISong, val application: Application, private val songDAO: SongDAO, private val playlistDAO: PlaylistDAO, private val songStatDAO: SongStatDAO, private val songStorageSystem: SongStorageSystem ) : ViewModel() {
 
     private val mediaPlayer = MediaPlayer()
     private val progressHandler = Handler(Looper.getMainLooper())
@@ -67,7 +67,6 @@ class PlayerViewModel(private val apiArtist: APIArtist, private val apiSong: API
 
     private val musicDownloader: MusicDownloader = MusicDownloader(apiSong)
     private val cacheSong: CacheSong = CacheSong(application)
-    private val songStorageSystem: SongStorageSystem = SongStorageSystem(10,application)
     private val songStateSystem: SongStateSystem = SongStateSystem(songStatDAO)
 
     init {
@@ -97,6 +96,7 @@ class PlayerViewModel(private val apiArtist: APIArtist, private val apiSong: API
 
     fun changeActualSong(index: Int) {
         songStateSystem.saveStats()
+
         actualSongIndex = index
         val song = listSong[index]
         songStateSystem.setSong(song)
@@ -106,7 +106,11 @@ class PlayerViewModel(private val apiArtist: APIArtist, private val apiSong: API
         actualSongState.value = PlayerViewModelState.ChangeSong(song)
         isPlaying.value = false
 
-        mediaPlayer.reset()
+        try {
+            mediaPlayer.reset()
+        }catch (e:Exception){
+
+        }
 
 
         val songFile : File? = cacheSong.load(song)
@@ -114,15 +118,20 @@ class PlayerViewModel(private val apiArtist: APIArtist, private val apiSong: API
         songFile?.also {
             addSongToMediaplayer(it)
         }?: run{
-            musicDownloader.startDownload(song,viewModelScope,object : OnDownloadFinish{
-                override fun invoke(byteArray: ByteArray) {
-                    cacheSong.save(song,byteArray,viewModelScope,object : OnSaveFinish{
-                        override fun invoke(file: File) {
-                            addSongToMediaplayer(file)
-                        }
-                    })
-                }
-            })
+            songStorageSystem.loadSong(song)?.also {
+                addSongToMediaplayer(it)
+            }?: run {
+                musicDownloader.startDownload(song,viewModelScope,object : OnDownloadFinish{
+                    override fun invoke(byteArray: ByteArray) {
+                        cacheSong.save(song,byteArray,viewModelScope,object : OnSaveFinish{
+                            override fun invoke(file: File) {
+                                addSongToMediaplayer(file)
+                            }
+                        })
+                    }
+                })
+            }
+
         }
 
         saveLastSongListen()
@@ -229,8 +238,11 @@ class PlayerViewModel(private val apiArtist: APIArtist, private val apiSong: API
 
     private fun addSongToMediaplayer(){
         mediaPlayer.start()
-        progressHandler.post(progressHandlerRunable)
-        isPlaying.value = true
+        if(mediaPlayer.isPlaying){
+            progressHandler.post(progressHandlerRunable)
+            isPlaying.value = true
+        }
+
     }
 
     fun destroyPlayer(){
