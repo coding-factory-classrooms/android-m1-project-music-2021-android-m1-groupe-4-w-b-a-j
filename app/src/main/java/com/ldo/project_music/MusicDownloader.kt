@@ -1,8 +1,8 @@
-package com.notspotify.project_music
+package com.ldo.project_music
 
 import android.util.Log
-import com.notspotify.project_music.api.service.APISong
-import com.notspotify.project_music.model.Song
+import com.ldo.project_music.api.service.APISong
+import com.ldo.project_music.model.Song
 import kotlinx.coroutines.*
 import okhttp3.ResponseBody
 import java.io.ByteArrayOutputStream

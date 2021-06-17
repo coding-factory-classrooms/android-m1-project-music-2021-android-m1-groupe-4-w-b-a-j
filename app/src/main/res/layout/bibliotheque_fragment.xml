@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.bibliotheque.Bibliotheque">
+    tools:context=".ui.main.bibliotheque.Bibliotheque"
+    android:background="@drawable/home_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,19 +18,20 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/transparent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@color/transparent">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="0"
-                tools:src="@tools:sample/avatars" />
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/ldo_667_logo"/>
 
             <Space
                 android:layout_width="30dp"
@@ -40,34 +42,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Library"
+                android:text="Home"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@color/transparent"/>
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
 
-        <EditText
-            android:id="@+id/searchBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_radius"
-            android:ems="10"
-            android:hint="Search"
-            android:inputType="textPersonName"
-            android:padding="12dp"
-            android:textColor="@color/Aubergine"
-            android:textColorHint="@color/Lilac"
-            android:textSize="16dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerArtists"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="560dp"
             android:layout_marginTop="20dp"
+            android:background="@color/transparent"
             tools:itemCount="10"
             tools:listitem="@layout/artist" />
     </LinearLayout>

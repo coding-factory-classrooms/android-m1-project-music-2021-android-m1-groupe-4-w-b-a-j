@@ -65,8 +65,8 @@
 
     <style name="date">
         <item name="android:textSize">22dp</item>
-        <item name="android:textColorPrimary">@color/colorAccent</item>
-        <item name="android:colorControlNormal" >@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/ldo_green</item>
+        <item name="android:colorControlNormal" >@color/ldo_green</item>
     </style>
 
 

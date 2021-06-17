@@ -28,7 +28,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:background="@drawable/chevron_left"
-            app:backgroundTint="@color/Aubergine" />
+            app:backgroundTint="@color/white" />
     </LinearLayout>
 
     <ScrollView

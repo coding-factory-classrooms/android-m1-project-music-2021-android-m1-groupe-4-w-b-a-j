@@ -6,7 +6,7 @@
     <data>
         <variable
             name="song"
-            type="com.notspotify.project_music.model.Song" />
+            type="com.ldo.project_music.model.Song" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/login"
-        android:name="com.notspotify.project_music.ui.login.LoginFragment"
+        android:name="com.ldo.project_music.ui.login.LoginFragment"
         android:label="Login"
         tools:layout="@layout/login_fragment" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.notspotify.project_music.ui.splashscreen.SplashFragment"
+        android:name="com.ldo.project_music.ui.splashscreen.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -34,6 +34,6 @@
     </fragment>
     <fragment
         android:id="@+id/bottomNav"
-        android:name="com.notspotify.project_music.ui.main.BottomNav"
+        android:name="com.ldo.project_music.ui.main.BottomNav"
         android:label="bottom_nav_fragment" />
 </navigation>

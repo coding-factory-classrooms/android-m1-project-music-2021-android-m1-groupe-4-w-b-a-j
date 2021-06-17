@@ -1,7 +1,7 @@
-package com.notspotify.project_music
+package com.ldo.project_music
 
 import android.app.Application
-import com.notspotify.project_music.model.Song
+import com.ldo.project_music.model.Song
 import kotlinx.coroutines.*
 import java.io.File
 import java.lang.Exception

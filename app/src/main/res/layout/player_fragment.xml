@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.player.Player">
+    tools:context=".ui.main.player.Player"
+    android:background="@drawable/home_background">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
+        android:background="@color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -87,7 +89,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:indeterminate="false" />
+            android:indeterminate="false"
+            android:progressBackgroundTint="@color/ldo_grey"
+            android:progressTint="@color/ldo_green" />
 
         <Space
             android:layout_width="match_parent"
@@ -128,18 +132,18 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/Lilac"
+                app:cardBackgroundColor="@color/ldo_green"
                 app:cardCornerRadius="50dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/Lilac">
+                    android:background="@color/ldo_green">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@color/Lilac"
+                        android:background="@color/ldo_green"
                         android:src="@drawable/previcon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -160,19 +164,19 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/Lilac"
+                app:cardBackgroundColor="@color/ldo_green"
                 app:cardCornerRadius="50dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/Lime">
+                    android:background="@color/ldo_green">
 
                     <ImageView
                         android:id="@+id/playIcon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@color/Lime"
+                        android:background="@color/ldo_grey"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -191,18 +195,18 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/Lilac"
+                app:cardBackgroundColor="@color/ldo_green"
                 app:cardCornerRadius="50dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/Lilac">
+                    android:background="@color/ldo_green">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@color/Lilac"
+                        android:background="@color/ldo_green"
                         android:src="@drawable/nexticon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

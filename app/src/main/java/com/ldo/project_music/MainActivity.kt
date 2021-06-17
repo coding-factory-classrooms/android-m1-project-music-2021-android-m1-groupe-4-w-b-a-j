@@ -1,4 +1,4 @@
-package com.notspotify.project_music
+package com.ldo.project_music
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
