@@ -1,13 +1,13 @@
-package com.notspotify.project_music.ui.main.bibliotheque.viewmodel.adapter
+package com.ldo.project_music.ui.main.bibliotheque.viewmodel.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.notspotify.project_music.R
-import com.notspotify.project_music.databinding.ArtistBinding
-import com.notspotify.project_music.model.Artist
+import com.ldo.project_music.R
+import com.ldo.project_music.databinding.ArtistBinding
+import com.ldo.project_music.model.Artist
 
 class ArtistAdapter (val artists: List<Artist>, private val onArtistClickListener: OnArtistClickListener)  : RecyclerView.Adapter<ArtistAdapter.ViewHolder>()  {
 

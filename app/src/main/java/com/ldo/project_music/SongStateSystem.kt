@@ -1,8 +1,8 @@
-package com.notspotify.project_music
+package com.ldo.project_music
 
-import com.notspotify.project_music.dal.dao.SongStatDAO
-import com.notspotify.project_music.dal.entity.SongStatEntity
-import com.notspotify.project_music.model.Song
+import com.ldo.project_music.dal.dao.SongStatDAO
+import com.ldo.project_music.dal.entity.SongStatEntity
+import com.ldo.project_music.model.Song
 
 class SongStateSystem(private val songStatDAO: SongStatDAO) {
 

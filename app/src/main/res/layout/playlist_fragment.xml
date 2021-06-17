@@ -22,7 +22,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="Playlists"
-            android:textSize="16sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/playlistRecycler"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +56,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/playlistRecycler">
 
+            <EditText
+                android:id="@+id/playlistName"
+                android:layout_width="275dp"
+                android:layout_height="59dp"
+                android:background="@drawable/input_background_2"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="1dp"
+                android:textColor="@color/black" />
+
             <Button
                 android:id="@+id/addBtn"
                 android:layout_width="wrap_content"
@@ -63,16 +73,6 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="Add" />
-
-            <EditText
-                android:id="@+id/playlistName"
-                android:layout_width="275dp"
-                android:layout_height="59dp"
-                android:background="@color/white"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:padding="1dp"
-                android:textColor="@color/black" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

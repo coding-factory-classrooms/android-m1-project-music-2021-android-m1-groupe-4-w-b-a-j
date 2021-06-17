@@ -1,6 +1,6 @@
-package com.notspotify.project_music.api.service
+package com.ldo.project_music.api.service
 
-import com.notspotify.project_music.model.Artist
+import com.ldo.project_music.model.Artist
 import retrofit2.Call
 import retrofit2.http.*
 

@@ -1,4 +1,4 @@
-package com.notspotify.project_music.ui.main
+package com.ldo.project_music.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 
-import com.notspotify.project_music.R
+import com.ldo.project_music.R
 import kotlinx.android.synthetic.main.main_bottom_nav.*
 
 class BottomNav : Fragment() {

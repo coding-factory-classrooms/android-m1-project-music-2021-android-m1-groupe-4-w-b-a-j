@@ -1,14 +1,14 @@
-package com.notspotify.project_music.ui.main.playlist.viewmodel
+package com.ldo.project_music.ui.main.playlist.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.notspotify.project_music.api.service.APIArtist
-import com.notspotify.project_music.dal.dao.PlaylistDAO
-import com.notspotify.project_music.dal.dao.SongDAO
-import com.notspotify.project_music.dal.entity.Playlist
-import com.notspotify.project_music.dal.entity.SongEntity
-import com.notspotify.project_music.model.Song
+import com.ldo.project_music.api.service.APIArtist
+import com.ldo.project_music.dal.dao.PlaylistDAO
+import com.ldo.project_music.dal.dao.SongDAO
+import com.ldo.project_music.dal.entity.Playlist
+import com.ldo.project_music.dal.entity.SongEntity
+import com.ldo.project_music.model.Song
 
 sealed class PlaylistState{
     data class Success(val playlistsInfo:List<PlaylistInfo>) : PlaylistState()

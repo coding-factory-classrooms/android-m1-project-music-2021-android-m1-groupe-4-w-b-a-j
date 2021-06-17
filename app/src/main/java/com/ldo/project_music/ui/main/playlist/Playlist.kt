@@ -1,4 +1,4 @@
-package com.notspotify.project_music.ui.main.playlist
+package com.ldo.project_music.ui.main.playlist
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -10,18 +10,18 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.notspotify.project_music.ui.main.playlist.viewmodel.PlaylistViewModel
-import com.notspotify.project_music.R
-import com.notspotify.project_music.common.makeToast
-import com.notspotify.project_music.dal.DatabaseFactory
-import com.notspotify.project_music.dal.entity.Playlist
-import com.notspotify.project_music.dal.entity.SongEntity
-import com.notspotify.project_music.factory.PlaylistViewModelFactory
-import com.notspotify.project_music.model.Song
-import com.notspotify.project_music.ui.main.playlist.viewmodel.PlaylistInfo
-import com.notspotify.project_music.ui.main.playlist.viewmodel.PlaylistState
-import com.notspotify.project_music.ui.main.playlist.viewmodel.adapter.OnPlaylistClickListener
-import com.notspotify.project_music.ui.main.playlist.viewmodel.adapter.PlaylistAdapter
+import com.ldo.project_music.ui.main.playlist.viewmodel.PlaylistViewModel
+import com.ldo.project_music.R
+import com.ldo.project_music.common.makeToast
+import com.ldo.project_music.dal.DatabaseFactory
+import com.ldo.project_music.dal.entity.Playlist
+import com.ldo.project_music.dal.entity.SongEntity
+import com.ldo.project_music.factory.PlaylistViewModelFactory
+import com.ldo.project_music.model.Song
+import com.ldo.project_music.ui.main.playlist.viewmodel.PlaylistInfo
+import com.ldo.project_music.ui.main.playlist.viewmodel.PlaylistState
+import com.ldo.project_music.ui.main.playlist.viewmodel.adapter.OnPlaylistClickListener
+import com.ldo.project_music.ui.main.playlist.viewmodel.adapter.PlaylistAdapter
 import kotlinx.android.synthetic.main.playlist_fragment.*
 
 class Playlist : Fragment() {

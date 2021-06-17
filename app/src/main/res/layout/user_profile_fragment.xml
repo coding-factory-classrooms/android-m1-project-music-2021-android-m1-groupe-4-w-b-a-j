@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfile">
+    tools:context=".ui.main.userProfile.UserProfile"
+    android:background="@drawable/home_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:orientation="vertical"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -55,12 +57,12 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/topSongsRecycler"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:orientation="horizontal"
-                tools:itemCount="5"
-                tools:listitem="@layout/song"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:layout_centerVertical="true"/>
+                tools:itemCount="5"
+                tools:listitem="@layout/songbox" />
         </LinearLayout>
 
         <Space
@@ -118,6 +120,49 @@
                     android:text="0" />
             </LinearLayout>
 
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Storage"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/maxStorage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:ems="10"
+                    android:hint="Max (Mo)"
+                    android:inputType="textPersonName" />
+
+                <Button
+                    android:id="@+id/maxStorageBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Valider" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

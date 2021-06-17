@@ -1,4 +1,4 @@
-package com.notspotify.project_music.ui.main
+package com.ldo.project_music.ui.main
 
 import androidx.lifecycle.ViewModel
 

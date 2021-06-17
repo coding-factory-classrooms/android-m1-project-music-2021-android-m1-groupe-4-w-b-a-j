@@ -1,4 +1,4 @@
-package com.notspotify.project_music.dal
+package com.ldo.project_music.dal
 
 import android.content.Context
 import androidx.room.Room

@@ -1,15 +1,15 @@
-package com.notspotify.project_music.factory
+package com.ldo.project_music.factory
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.notspotify.project_music.SongStorageSystem
-import com.notspotify.project_music.api.service.APIArtist
-import com.notspotify.project_music.api.service.APISong
-import com.notspotify.project_music.dal.dao.PlaylistDAO
-import com.notspotify.project_music.dal.dao.SongDAO
-import com.notspotify.project_music.dal.dao.SongStatDAO
-import com.notspotify.project_music.ui.main.player.viewmodel.PlayerViewModel
+import com.ldo.project_music.SongStorageSystem
+import com.ldo.project_music.api.service.APIArtist
+import com.ldo.project_music.api.service.APISong
+import com.ldo.project_music.dal.dao.PlaylistDAO
+import com.ldo.project_music.dal.dao.SongDAO
+import com.ldo.project_music.dal.dao.SongStatDAO
+import com.ldo.project_music.ui.main.player.viewmodel.PlayerViewModel
 
 @Suppress("UNCHECKED_CAST")
 class PlayerViewModelFactory(

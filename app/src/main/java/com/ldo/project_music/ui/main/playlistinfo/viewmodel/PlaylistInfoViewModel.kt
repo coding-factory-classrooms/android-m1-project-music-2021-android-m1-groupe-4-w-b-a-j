@@ -1,16 +1,16 @@
-package com.notspotify.project_music.ui.main.playlistinfo.viewmodel
+package com.ldo.project_music.ui.main.playlistinfo.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.notspotify.project_music.*
-import com.notspotify.project_music.dal.dao.PlaylistDAO
-import com.notspotify.project_music.dal.dao.SongDAO
-import com.notspotify.project_music.model.Artist
-import com.notspotify.project_music.model.Song
-import com.notspotify.project_music.ui.main.player.viewmodel.PlayerViewModelState
+import com.ldo.project_music.*
+import com.ldo.project_music.dal.dao.PlaylistDAO
+import com.ldo.project_music.dal.dao.SongDAO
+import com.ldo.project_music.model.Artist
+import com.ldo.project_music.model.Song
+import com.ldo.project_music.ui.main.player.viewmodel.PlayerViewModelState
 import kotlinx.coroutines.launch
 import java.io.File
 

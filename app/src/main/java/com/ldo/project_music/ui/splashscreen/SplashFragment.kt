@@ -1,4 +1,4 @@
-package com.notspotify.project_music.ui.splashscreen
+package com.ldo.project_music.ui.splashscreen
 
 import android.os.Bundle
 import android.util.Log
@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.notspotify.project_music.R
-import com.notspotify.project_music.factory.SplashViewModelFactory
-import com.notspotify.project_music.api.RetrofitFactory
-import com.notspotify.project_music.api.service.APIAccount
-import com.notspotify.project_music.ui.splashscreen.viewmodel.SplashViewModel
+import com.ldo.project_music.R
+import com.ldo.project_music.factory.SplashViewModelFactory
+import com.ldo.project_music.api.RetrofitFactory
+import com.ldo.project_music.api.service.APIAccount
+import com.ldo.project_music.ui.splashscreen.viewmodel.SplashViewModel
 
 import java.lang.Exception
 

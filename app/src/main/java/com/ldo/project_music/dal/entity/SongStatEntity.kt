@@ -1,4 +1,4 @@
-package com.notspotify.project_music.dal.entity
+package com.ldo.project_music.dal.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

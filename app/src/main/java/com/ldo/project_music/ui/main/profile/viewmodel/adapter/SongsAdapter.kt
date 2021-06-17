@@ -1,13 +1,13 @@
-package com.notspotify.project_music.ui.main.profile.viewmodel.adapter
+package com.ldo.project_music.ui.main.profile.viewmodel.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.notspotify.project_music.R
-import com.notspotify.project_music.databinding.SongBinding
-import com.notspotify.project_music.model.Song
+import com.ldo.project_music.R
+import com.ldo.project_music.databinding.SongBinding
+import com.ldo.project_music.model.Song
 
 
 

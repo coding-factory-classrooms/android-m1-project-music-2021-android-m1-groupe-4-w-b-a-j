@@ -1,4 +1,4 @@
-package com.notspotify.project_music.ui.main.player.viewmodel
+package com.ldo.project_music.ui.main.player.viewmodel
 
 import android.media.MediaPlayer
 import android.os.Handler
@@ -8,20 +8,20 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.notspotify.project_music.api.service.APISong
-import com.notspotify.project_music.model.Song
+import com.ldo.project_music.api.service.APISong
+import com.ldo.project_music.model.Song
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.app.Application
 import android.content.Context
-import com.notspotify.project_music.*
-import com.notspotify.project_music.api.service.APIArtist
-import com.notspotify.project_music.dal.dao.PlaylistDAO
-import com.notspotify.project_music.dal.dao.SongDAO
-import com.notspotify.project_music.dal.dao.SongStatDAO
-import com.notspotify.project_music.dal.entity.SongStatEntity
-import com.notspotify.project_music.model.Artist
+import com.ldo.project_music.*
+import com.ldo.project_music.api.service.APIArtist
+import com.ldo.project_music.dal.dao.PlaylistDAO
+import com.ldo.project_music.dal.dao.SongDAO
+import com.ldo.project_music.dal.dao.SongStatDAO
+import com.ldo.project_music.dal.entity.SongStatEntity
+import com.ldo.project_music.model.Artist
 import java.io.File
 import java.lang.Runnable
 

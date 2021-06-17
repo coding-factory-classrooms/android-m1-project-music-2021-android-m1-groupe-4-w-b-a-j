@@ -1,10 +1,10 @@
-package com.notspotify.project_music.factory
+package com.ldo.project_music.factory
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.notspotify.project_music.api.service.APIAccount
-import com.notspotify.project_music.ui.splashscreen.viewmodel.SplashViewModel
+import com.ldo.project_music.api.service.APIAccount
+import com.ldo.project_music.ui.splashscreen.viewmodel.SplashViewModel
 
 @Suppress("UNCHECKED_CAST")
 class SplashViewModelFactory(private val application: Application, private val apiAccount: APIAccount) : ViewModelProvider.NewInstanceFactory(){

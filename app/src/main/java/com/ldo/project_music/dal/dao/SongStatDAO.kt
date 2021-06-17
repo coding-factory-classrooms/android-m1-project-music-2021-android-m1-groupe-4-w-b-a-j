@@ -1,8 +1,8 @@
-package com.notspotify.project_music.dal.dao
+package com.ldo.project_music.dal.dao
 
 import android.util.Log
 import androidx.room.*
-import com.notspotify.project_music.dal.entity.SongStatEntity
+import com.ldo.project_music.dal.entity.SongStatEntity
 
 @Dao
 interface SongStatDAO {

@@ -1,6 +1,6 @@
-package com.notspotify.project_music.api.service
+package com.ldo.project_music.api.service
 
-import com.notspotify.project_music.api.model.Auth
+import com.ldo.project_music.api.model.Auth
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST

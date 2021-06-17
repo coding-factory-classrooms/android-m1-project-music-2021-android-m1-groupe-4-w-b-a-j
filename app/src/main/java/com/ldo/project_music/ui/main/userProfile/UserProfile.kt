@@ -1,4 +1,4 @@
-package com.notspotify.project_music.ui.main.userProfile
+package com.ldo.project_music.ui.main.userProfile
 
 import android.os.Bundle
 import android.util.Log
@@ -10,19 +10,19 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.notspotify.project_music.R
-import com.notspotify.project_music.StatsState
-import com.notspotify.project_music.UserProfileViewModel
-import com.notspotify.project_music.api.RetrofitFactory
-import com.notspotify.project_music.api.service.APIArtist
-import com.notspotify.project_music.api.service.APISong
-import com.notspotify.project_music.dal.DatabaseFactory
-import com.notspotify.project_music.factory.UserProfileViewModelFactory
-import com.notspotify.project_music.model.Artist
-import com.notspotify.project_music.model.Song
-import com.notspotify.project_music.ui.main.profile.viewmodel.adapter.OnSongClickListener
-import com.notspotify.project_music.ui.main.profile.viewmodel.adapter.SongsAdapter
-import com.notspotify.project_music.ui.main.userProfile.viewmodel.adapter.SongBoxAdapter
+import com.ldo.project_music.R
+import com.ldo.project_music.StatsState
+import com.ldo.project_music.UserProfileViewModel
+import com.ldo.project_music.api.RetrofitFactory
+import com.ldo.project_music.api.service.APIArtist
+import com.ldo.project_music.api.service.APISong
+import com.ldo.project_music.dal.DatabaseFactory
+import com.ldo.project_music.factory.UserProfileViewModelFactory
+import com.ldo.project_music.model.Artist
+import com.ldo.project_music.model.Song
+import com.ldo.project_music.ui.main.profile.viewmodel.adapter.OnSongClickListener
+import com.ldo.project_music.ui.main.profile.viewmodel.adapter.SongsAdapter
+import com.ldo.project_music.ui.main.userProfile.viewmodel.adapter.SongBoxAdapter
 import kotlinx.android.synthetic.main.user_profile_fragment.*
 
 

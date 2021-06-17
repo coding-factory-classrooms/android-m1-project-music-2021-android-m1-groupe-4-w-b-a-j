@@ -1,16 +1,16 @@
-package com.notspotify.project_music.ui.main.profile.viewmodel
+package com.ldo.project_music.ui.main.profile.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.notspotify.project_music.api.service.APIArtist
-import com.notspotify.project_music.api.service.APISong
-import com.notspotify.project_music.dal.dao.PlaylistDAO
-import com.notspotify.project_music.dal.dao.SongDAO
-import com.notspotify.project_music.dal.entity.Playlist
-import com.notspotify.project_music.dal.entity.SongEntity
-import com.notspotify.project_music.model.Artist
-import com.notspotify.project_music.model.Song
+import com.ldo.project_music.api.service.APIArtist
+import com.ldo.project_music.api.service.APISong
+import com.ldo.project_music.dal.dao.PlaylistDAO
+import com.ldo.project_music.dal.dao.SongDAO
+import com.ldo.project_music.dal.entity.Playlist
+import com.ldo.project_music.dal.entity.SongEntity
+import com.ldo.project_music.model.Artist
+import com.ldo.project_music.model.Song
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

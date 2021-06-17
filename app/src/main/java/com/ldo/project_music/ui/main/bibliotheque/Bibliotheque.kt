@@ -1,4 +1,4 @@
-package com.notspotify.project_music.ui.main.bibliotheque
+package com.ldo.project_music.ui.main.bibliotheque
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -11,16 +11,16 @@ import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.notspotify.project_music.ui.main.bibliotheque.viewmodel.BibliothequeViewModel
-import com.notspotify.project_music.R
-import com.notspotify.project_music.api.RetrofitFactory
-import com.notspotify.project_music.api.service.APIArtist
-import com.notspotify.project_music.common.makeToast
-import com.notspotify.project_music.factory.BibliothequeViewModelFactory
-import com.notspotify.project_music.model.Artist
-import com.notspotify.project_music.ui.main.bibliotheque.viewmodel.BibliothequetState
-import com.notspotify.project_music.ui.main.bibliotheque.viewmodel.adapter.ArtistAdapter
-import com.notspotify.project_music.ui.main.bibliotheque.viewmodel.adapter.OnArtistClickListener
+import com.ldo.project_music.ui.main.bibliotheque.viewmodel.BibliothequeViewModel
+import com.ldo.project_music.R
+import com.ldo.project_music.api.RetrofitFactory
+import com.ldo.project_music.api.service.APIArtist
+import com.ldo.project_music.common.makeToast
+import com.ldo.project_music.factory.BibliothequeViewModelFactory
+import com.ldo.project_music.model.Artist
+import com.ldo.project_music.ui.main.bibliotheque.viewmodel.BibliothequetState
+import com.ldo.project_music.ui.main.bibliotheque.viewmodel.adapter.ArtistAdapter
+import com.ldo.project_music.ui.main.bibliotheque.viewmodel.adapter.OnArtistClickListener
 import kotlinx.android.synthetic.main.bibliotheque_fragment.*
 
 class Bibliotheque : Fragment() {

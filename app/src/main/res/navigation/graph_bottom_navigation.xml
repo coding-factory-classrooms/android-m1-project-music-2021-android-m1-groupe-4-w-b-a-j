@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/userProfile"
-        android:name="com.ldo.project_music.UserProfile"
+        android:name="com.ldo.project_music.ui.main.userProfile.UserProfile"
         android:label="user_profile_fragment"
         tools:layout="@layout/user_profile_fragment" />
     <fragment

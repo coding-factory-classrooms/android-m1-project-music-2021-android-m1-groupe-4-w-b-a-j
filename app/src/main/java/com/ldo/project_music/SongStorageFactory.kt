@@ -1,4 +1,4 @@
-package com.notspotify.project_music
+package com.ldo.project_music
 
 import android.app.Application
 import android.content.Context

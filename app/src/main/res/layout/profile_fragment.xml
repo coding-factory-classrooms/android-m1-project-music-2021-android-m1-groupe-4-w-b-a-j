@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
-    tools:context=".ui.main.profile.Profile">
+    tools:context=".ui.main.profile.Profile"
+    android:background="@drawable/home_background">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -32,7 +33,7 @@
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="350dp"
+        android:layout_width="370dp"
         android:layout_height="678dp"
         android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +55,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:elevation="10dp"
-                app:cardCornerRadius="16dp">
+                app:cardCornerRadius="1dp">
 
                 <ImageView
                     android:id="@+id/albumCover"

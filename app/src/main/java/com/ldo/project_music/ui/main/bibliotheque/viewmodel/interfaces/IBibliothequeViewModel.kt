@@ -1,7 +1,7 @@
-package com.notspotify.project_music.ui.main.bibliotheque.viewmodel.interfaces
+package com.ldo.project_music.ui.main.bibliotheque.viewmodel.interfaces
 
 import androidx.lifecycle.LiveData
-import com.notspotify.project_music.ui.main.bibliotheque.viewmodel.BibliothequetState
+import com.ldo.project_music.ui.main.bibliotheque.viewmodel.BibliothequetState
 
 
 interface IBibliothequeViewModel {

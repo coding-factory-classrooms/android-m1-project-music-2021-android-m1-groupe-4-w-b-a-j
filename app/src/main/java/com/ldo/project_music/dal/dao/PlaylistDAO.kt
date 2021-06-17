@@ -1,7 +1,7 @@
-package com.notspotify.project_music.dal.dao
+package com.ldo.project_music.dal.dao
 
 import androidx.room.*
-import com.notspotify.project_music.dal.entity.Playlist
+import com.ldo.project_music.dal.entity.Playlist
 
 @Dao
 interface PlaylistDAO {

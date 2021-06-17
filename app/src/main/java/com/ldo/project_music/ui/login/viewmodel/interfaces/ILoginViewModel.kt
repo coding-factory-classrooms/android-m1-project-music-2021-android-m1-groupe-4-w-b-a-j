@@ -1,7 +1,7 @@
-package com.notspotify.project_music.ui.login.viewmodel.interfaces
+package com.ldo.project_music.ui.login.viewmodel.interfaces
 
 import androidx.lifecycle.LiveData
-import com.notspotify.project_music.ui.login.viewmodel.LoginFragmentState
+import com.ldo.project_music.ui.login.viewmodel.LoginFragmentState
 
 interface ILoginViewModel {
     fun getState() : LiveData<LoginFragmentState>

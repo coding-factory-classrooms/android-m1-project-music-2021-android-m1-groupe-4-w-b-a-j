@@ -1,4 +1,4 @@
-package com.notspotify.project_music.ui.main.player
+package com.ldo.project_music.ui.main.player
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -10,17 +10,17 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.notspotify.project_music.ui.main.player.viewmodel.PlayerViewModel
-import com.notspotify.project_music.R
-import com.notspotify.project_music.SongStorageFactory
-import com.notspotify.project_music.api.RetrofitFactory
-import com.notspotify.project_music.api.service.APIArtist
-import com.notspotify.project_music.api.service.APISong
-import com.notspotify.project_music.common.makeToast
-import com.notspotify.project_music.dal.DatabaseFactory
-import com.notspotify.project_music.factory.PlayerViewModelFactory
-import com.notspotify.project_music.model.Song
-import com.notspotify.project_music.ui.main.player.viewmodel.PlayerViewModelState
+import com.ldo.project_music.ui.main.player.viewmodel.PlayerViewModel
+import com.ldo.project_music.R
+import com.ldo.project_music.SongStorageFactory
+import com.ldo.project_music.api.RetrofitFactory
+import com.ldo.project_music.api.service.APIArtist
+import com.ldo.project_music.api.service.APISong
+import com.ldo.project_music.common.makeToast
+import com.ldo.project_music.dal.DatabaseFactory
+import com.ldo.project_music.factory.PlayerViewModelFactory
+import com.ldo.project_music.model.Song
+import com.ldo.project_music.ui.main.player.viewmodel.PlayerViewModelState
 import kotlinx.android.synthetic.main.player_fragment.*
 import java.util.concurrent.TimeUnit
 

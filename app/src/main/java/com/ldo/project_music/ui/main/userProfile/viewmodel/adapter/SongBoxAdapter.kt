@@ -1,14 +1,14 @@
-package com.notspotify.project_music.ui.main.userProfile.viewmodel.adapter
+package com.ldo.project_music.ui.main.userProfile.viewmodel.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.notspotify.project_music.R
-import com.notspotify.project_music.databinding.SongboxBinding
-import com.notspotify.project_music.model.Artist
-import com.notspotify.project_music.model.Song
+import com.ldo.project_music.R
+import com.ldo.project_music.databinding.SongboxBinding
+import com.ldo.project_music.model.Artist
+import com.ldo.project_music.model.Song
 
 
 class SongBoxAdapter(val songs: List<Pair<Song,Artist>>) : RecyclerView.Adapter<SongBoxAdapter.ViewHolder>()  {

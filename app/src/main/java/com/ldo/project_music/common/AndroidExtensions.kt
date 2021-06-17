@@ -1,4 +1,4 @@
-package com.notspotify.project_music.common
+package com.ldo.project_music.common
 
 import android.graphics.drawable.AnimationDrawable
 import android.os.Build

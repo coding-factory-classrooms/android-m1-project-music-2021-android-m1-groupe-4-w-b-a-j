@@ -1,4 +1,4 @@
-package com.notspotify.project_music.ui.login
+package com.ldo.project_music.ui.login
 
 import android.os.Build
 import android.os.Bundle
@@ -10,14 +10,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.notspotify.project_music.R
-import com.notspotify.project_music.common.formatHtml
-import com.notspotify.project_music.common.makeToast
-import com.notspotify.project_music.factory.LoginViewModelFactory
-import com.notspotify.project_music.api.RetrofitFactory
-import com.notspotify.project_music.api.service.APIAccount
-import com.notspotify.project_music.ui.login.viewmodel.LoginFragmentState
-import com.notspotify.project_music.ui.login.viewmodel.LoginViewModel
+import com.ldo.project_music.R
+import com.ldo.project_music.common.formatHtml
+import com.ldo.project_music.common.makeToast
+import com.ldo.project_music.factory.LoginViewModelFactory
+import com.ldo.project_music.api.RetrofitFactory
+import com.ldo.project_music.api.service.APIAccount
+import com.ldo.project_music.ui.login.viewmodel.LoginFragmentState
+import com.ldo.project_music.ui.login.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.login_fragment.*
 import kotlinx.android.synthetic.main.login_fragment.password
 

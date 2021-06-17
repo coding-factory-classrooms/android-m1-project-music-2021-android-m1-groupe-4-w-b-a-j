@@ -1,13 +1,13 @@
-package com.notspotify.project_music.dal
+package com.ldo.project_music.dal
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.notspotify.project_music.dal.dao.PlaylistDAO
-import com.notspotify.project_music.dal.dao.SongDAO
-import com.notspotify.project_music.dal.dao.SongStatDAO
-import com.notspotify.project_music.dal.entity.Playlist
-import com.notspotify.project_music.dal.entity.SongEntity
-import com.notspotify.project_music.dal.entity.SongStatEntity
+import com.ldo.project_music.dal.dao.PlaylistDAO
+import com.ldo.project_music.dal.dao.SongDAO
+import com.ldo.project_music.dal.dao.SongStatDAO
+import com.ldo.project_music.dal.entity.Playlist
+import com.ldo.project_music.dal.entity.SongEntity
+import com.ldo.project_music.dal.entity.SongStatEntity
 
 const val DB_NAME = "lofify.db"
 @Database(entities = [Playlist::class, SongEntity::class,SongStatEntity::class], version = 2)
